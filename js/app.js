@@ -1,20 +1,16 @@
 /**
  * Janatha Sarees - Soraba, Karnataka
- * Interactive Storefront Engine (Refined - No Price Tags, Genuine & Authentic)
- * Features:
- *  - Instant Kannada / English Bilingual Toggle
- *  - Interactive Occasion & Style Matcher
- *  - 1-Click WhatsApp Direct Inquiry Generator
- *  - Accessible Font Size Adjuster
- *  - FAQ Accordion with AEO Schema alignment
+ * Trending E-Commerce Engine (Myntra & Ajio inspired)
+ * Clean, fast, interactive, mobile-first
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initLanguageSwitcher();
-  initFontSizeToggle();
-  initStylistFilter();
+  initProductsCatalog();
+  initSearch();
+  initCategoryFilters();
+  initWishlist();
   initFaqAccordion();
-  initMobileMenu();
 });
 
 /* ==========================================================================
@@ -23,99 +19,35 @@ document.addEventListener('DOMContentLoaded', () => {
 const translations = {
   kn: {
     announcement: "✨ ಮದುವೆ, ಗೃಹಪ್ರವೇಶ ಮತ್ತು ಹಬ್ಬದ ಸೀಸನ್ ನೂತನ ಸಂಗ್ರಹಗಳು ಈಗ ಜನತಾ ಸ್ಯಾರೀಸ್ ಸೊರಬದಲ್ಲಿ ಲಭ್ಯವಿದೆ!",
-    openStatus: "ಅಂಗಡಿ ತೆರೆದಿದೆ: ಬೆಳಿಗ್ಗೆ 9:30 - ರಾತ್ರಿ 9:00 (ಪ್ರತಿದಿನ)",
-    tagline: "ಸೊರಬದ ವಿಶ್ವಾಸಾರ್ಹ ವಸ್ತ್ರ ಭಂಡಾರ • <span>ಸೊರಬ, ಶಿವಮೊಗ್ಗ</span>",
-    navHome: "ಮುಖಪುಟ",
-    navCollections: "ಸಂಗ್ರಹಗಳು",
-    navStylist: "ಅವಕಾಶ ಶೈಲಿಗಾರ",
-    navLookbook: "ಸ್ಟೈಲ್ ಇನ್ಸ್‌ಪಿರೇಷನ್",
-    navStore: "ಅಂಗಡಿ ಮಾಹಿತಿ",
-    navFaq: "ಪ್ರಶ್ನೋತ್ತರ",
-    chatWhatsApp: "WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ",
-    heroBadge: "ಮಲ್ನಾಡ್ ಸಾಂಸ್ಕೃತಿಕ ಪರಂಪರೆ & ನವೀನ ಶೈಲಿ",
-    heroDesc: "ಮದುವೆ ಮುಹೂರ್ತ, ಗೃಹಪ್ರವೇಶ, ಹಬ್ಬ ಹರಿದಿನಗಳಿಂದ ಹಿಡಿದು ನಿತ್ಯ ಧರಿಸುವ ಆರಾಮದಾಯಕ ಉಡುಪುಗಳವರೆಗೆ — ಮಹಿಳೆಯರು, ಪುರುಷರು ಮತ್ತು ಮಕ್ಕಳ ಉಡುಪುಗಳ ಬೃಹತ್ ಸಂಗ್ರಹ ಜನತಾ ಸ್ಯಾರೀಸ್‌ನಲ್ಲಿ ಲಭ್ಯ.",
+    heroDesc: "ಮದುವೆ ಮುಹೂರ್ತ, ಗೃಹಪ್ರವೇಶ, ಹಬ್ಬ ಹರಿದಿನಗಳಿಂದ ಹಿಡಿದು ನಿತ್ಯ ಧರಿಸುವ ಆರಾಮದಾಯಕ ಉಡುಪುಗಳವರೆಗೆ — ಮಹಿಳೆಯರು, ಪುರುಷರು ಮತ್ತು ಮಕ್ಕಳ ಉಡುಪುಗಳ ಬೃಹತ್ ಸಂಗ್ರಹ ಮಗ್ಗದ ನೇರ ಬೆಲೆಗೆ ಜನತಾ ಸ್ಯಾರೀಸ್‌ನಲ್ಲಿ ಲಭ್ಯ.",
     ctaExplore: "ಉಡುಪುಗಳ ಸಂಗ್ರಹ ವೀಕ್ಷಿಸಿ",
-    ctaVisit: "ಅಂಗಡಿಯ ವಿಳಾಸ & ಮಾರ್ಗ",
-    stylistTitle: "ಸಮಾರಂಭ ಹಾಗೂ ಶೈಲಿಗೆ ತಕ್ಕ ಉಡುಪುಗಳನ್ನು ಶೋಧಿಸಿ",
-    stylistSubtitle: "ನಿಮ್ಮ ಶುಭ ಸಮಾರಂಭ ಮತ್ತು ಯಾರಿಗೆ ಉಡುಪು ಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
-    filterOccasion: "ಸಮಾರಂಭ ಆಯ್ಕೆ ಮಾಡಿ:",
-    filterTarget: "ಯಾರಿಗೆ ಹುಡುಕುತ್ತಿದ್ದೀರಿ?:",
-    filterCollection: "ಸಂಗ್ರಹ ಶೈಲಿ:",
-    btnAll: "ಎಲ್ಲಾ ಸಮಾರಂಭಗಳು",
-    btnWedding: "ಮದುವೆ & ಮುಹೂರ್ತ",
-    btnHousewarming: "ಗೃಹಪ್ರವೇಶ",
-    btnFestival: "ಹಬ್ಬ & ಪೂಜೆ",
-    btnCasual: "ದೈನಂದಿನ & ಕಚೇರಿ",
-    btnSleep: "ನೈಟ್‌ವೇರ್ & ಸ್ಪೋರ್ಟ್ಸ್",
-    targetAll: "ಎಲ್ಲರೂ",
-    targetWomen: "ಮಹಿಳೆಯರು (ಸ್ಯಾರೀಸ್)",
-    targetMen: "ಪುರುಷರು",
-    targetKids: "ಮಕ್ಕಳು",
-    tierAll: "ಎಲ್ಲಾ ಸಂಗ್ರಹಗಳು",
-    tierDaily: "ದೈನಂದಿನ & ಕ್ಯಾಶುಯಲ್",
-    tierFestive: "ಹಬ್ಬದ ವಿಶೇಷ",
-    tierBridal: "ರಾಯಲ್ ಬ್ರೈಡಲ್ & ಸಿಲ್ಕ್",
-    inquireBtn: "WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ",
-    storeVisitTitle: "ಸೊರಬದಲ್ಲಿರುವ ನಮ್ಮ ಮಳಿಗೆಗೆ ಭೇಟಿ ನೀಡಿ",
-    storeVisitSub: "ಮಲೆನಾಡಿನ ಹಬ್ಬ ಹಾಗೂ ಮದುವೆ ಸಂಭ್ರಮಗಳಿಗೆ ಕುಟುಂಬ ಸಮೇತ ಶಾಪಿಂಗ್ ಮಾಡುವ ವಿಶ್ವಾಸಾರ್ಹ ತಾಣ",
-    factAddressTitle: "ವಿಳಾಸ & ಹೆಗ್ಗುರುತು",
-    factAddressVal: "ಹಳೇ ಬಸ್ ನಿಲ್ದಾಣದ ಸಮೀಪ, ರಥಬೀದಿ (Car Street), ಸೊರಬ - 577429",
-    factTimingsTitle: "ಕಾರ್ಯನಿರ್ವಹಣಾ ಸಮಯ",
-    factTimingsVal: "ಬೆಳಿಗ್ಗೆ 9:30 ರಿಂದ ರಾತ್ರಿ 9:00 ರವರೆಗೆ (ವಾರದ ಎಲ್ಲಾ 7 ದಿನಗಳು ತೆರೆದಿರುತ್ತದೆ)",
-    factPayTitle: "ಪಾವತಿ ವಿಧಾನಗಳು",
-    factPayVal: "UPI (PhonePe, GPay), ನಗದು, ಡೆಬಿಟ್ & ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್",
-    factCallTitle: "ಸಂಪರ್ಕ ಸಂಖ್ಯೆ",
-    factCallVal: "+91 94812 34567 / 08184 272233",
-    faqTitle: "ಜನತಾ ಸ್ಯಾರೀಸ್ ಬಗ್ಗೆ ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು",
-    faqSubtitle: "ಉಡುಪುಗಳು, ಲಭ್ಯತೆ, ಸಗಟು ದರ ಹಾಗೂ ಸ್ಥಳದ ಬಗ್ಗೆ ವಿವರವಾದ ಮಾಹಿತಿ"
+    showingAll: "ಎಲ್ಲಾ ಉಡುಪುಗಳು",
+    sarees: "ಸ್ಯಾರೀಸ್",
+    men: "ಪುರುಷರ ಉಡುಪು",
+    kids: "ಮಕ್ಕಳ ಉಡುಪು",
+    occasions: "ಶುಭ ಸಮಾರಂಭಗಳು",
+    comfort: "ನೈಟ್‌ವೇರ್ & ಸ್ಪೋರ್ಟ್ಸ್",
+    directWeaver: "ಮಗ್ಗದ ನೇರ ಬೆಲೆ",
+    inquireWhatsApp: "WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ",
+    addedWishlist: "ವಿಶ್‌ಲಿಸ್ಟ್‌ಗೆ ಸೇರಿಸಲಾಗಿದೆ!",
+    removedWishlist: "ವಿಶ್‌ಲಿಸ್ಟ್‌ನಿಂದ ತೆಗೆದುಹಾಕಲಾಗಿದೆ",
+    emptyWishlist: "ನಿಮ್ಮ ವಿಶ್‌ಲಿಸ್ಟ್ ಖಾಲಿಯಾಗಿದೆ. ಸಂಗ್ರಹಗಳಿಂದ ಆಯ್ಕೆ ಮಾಡಿ!"
   },
   en: {
-    announcement: "✨ Grand Festive, Wedding & Gruha Pravesha Collections Now in Store at Janatha Sarees Soraba!",
-    openStatus: "Store Open Today: 9:30 AM – 9:00 PM (All 7 Days)",
-    tagline: "Soraba's Trusted Family Fashion Destination • <span>Soraba, Shivamogga</span>",
-    navHome: "Home",
-    navCollections: "Collections",
-    navStylist: "Occasion Stylist",
-    navLookbook: "Style Inspiration",
-    navStore: "Store Visit",
-    navFaq: "FAQs",
-    chatWhatsApp: "Chat on WhatsApp",
-    heroBadge: "Malnad Textile Heritage & Contemporary Fashion",
-    heroDesc: "From grand wedding Muhurthams and Gruha Pravesha to vibrant festivals and everyday comfort — discover Karnataka's finest Sarees, Men's wear, Kids' festive sets, Nightwear, and Sportswear at honest, affordable prices.",
+    announcement: "✨ Wedding, Gruha Pravesha & Festive Collections Now in Store in Soraba!",
+    heroDesc: "From Royal Wedding Muhurthams and Gruha Pravesha to vibrant festivals and everyday comfort — discover Karnataka's finest Sarees, Men's wear, Kids' festive sets, Nightwear, and Sportswear at direct weaver prices in Soraba.",
     ctaExplore: "Explore Collections",
-    ctaVisit: "Get Store Directions",
-    stylistTitle: "Find Outfits by Occasion & Category",
-    stylistSubtitle: "Select your celebration and who you're shopping for to discover curated recommendations.",
-    filterOccasion: "Select Occasion:",
-    filterTarget: "Who are you shopping for?:",
-    filterCollection: "Collection Range:",
-    btnAll: "All Occasions",
-    btnWedding: "Wedding & Muhurtham",
-    btnHousewarming: "Gruha Pravesha",
-    btnFestival: "Festivals & Puja",
-    btnCasual: "Daily & Office Wear",
-    btnSleep: "Nightwear & Active",
-    targetAll: "Everyone",
-    targetWomen: "Women (Sarees)",
-    targetMen: "Men",
-    targetKids: "Kids",
-    tierAll: "All Collections",
-    tierDaily: "Everyday & Casual",
-    tierFestive: "Festive Occasion",
-    tierBridal: "Royal Bridal & Silk",
-    inquireBtn: "Inquire on WhatsApp",
-    storeVisitTitle: "Experience Shopping at Janatha Sarees Soraba",
-    storeVisitSub: "A spacious, welcoming family textile showroom rooted in the heart of Malnad culture.",
-    factAddressTitle: "Address & Landmark",
-    factAddressVal: "Near Old Bus Stand, Car Street, Soraba, Shivamogga Dist, Karnataka - 577429",
-    factTimingsTitle: "Store Timings",
-    factTimingsVal: "9:30 AM – 9:00 PM (Open all 7 days of the week)",
-    factPayTitle: "Payment Modes",
-    factPayVal: "UPI (GPay, PhonePe, Paytm), Cash, Debit/Credit Cards",
-    factCallTitle: "Direct Helpline",
-    factCallVal: "+91 94812 34567 / 08184 272233",
-    faqTitle: "Frequently Asked Questions",
-    faqSubtitle: "Helpful answers about Janatha Sarees collections, location, bulk packages, and WhatsApp inquiry."
+    showingAll: "Showing All",
+    sarees: "Sarees & Silks",
+    men: "Men's Wear",
+    kids: "Kids Wear",
+    occasions: "Occasions",
+    comfort: "Night & Sports",
+    directWeaver: "Direct Weaver Value",
+    inquireWhatsApp: "Inquire on WhatsApp",
+    addedWishlist: "Added to Wishlist!",
+    removedWishlist: "Removed from Wishlist",
+    emptyWishlist: "Your wishlist is empty. Tap the heart on items you love!"
   }
 };
 
@@ -123,7 +55,6 @@ let currentLang = 'en';
 
 function initLanguageSwitcher() {
   const switchBtns = document.querySelectorAll('[data-lang-btn]');
-  
   const savedLang = localStorage.getItem('janatha_lang');
   if (savedLang && (savedLang === 'kn' || savedLang === 'en')) {
     setLanguage(savedLang);
@@ -140,7 +71,6 @@ function initLanguageSwitcher() {
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('janatha_lang', lang);
-
   document.documentElement.setAttribute('lang', lang);
 
   document.querySelectorAll('[data-lang-btn]').forEach(btn => {
@@ -154,268 +84,292 @@ function setLanguage(lang) {
   const dict = translations[lang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (dict[key]) {
+    if (dict && dict[key]) {
       el.innerHTML = dict[key];
     }
   });
 
-  renderStylistResults();
+  renderProducts();
+  renderWishlistDrawer();
 }
 
 /* ==========================================================================
-   FONT SIZE TOGGLE (ACCESSIBILITY FOR ELDERS & HIGH LEGIBILITY)
+   E-COMMERCE PRODUCT CATALOG DATA (AUTHENTIC & VALUE-FOCUSED)
    ========================================================================== */
-function initFontSizeToggle() {
-  const fontBtn = document.getElementById('fontSizeBtn');
-  if (!fontBtn) return;
-
-  fontBtn.addEventListener('click', () => {
-    document.body.classList.toggle('font-large');
-    const isLarge = document.body.classList.contains('font-large');
-    fontBtn.innerText = isLarge ? 'A Normal' : 'A+ Large';
-    fontBtn.title = isLarge ? 'Switch to Standard Font Size' : 'Switch to Larger Font Size for Easy Reading';
-  });
-}
-
-/* ==========================================================================
-   OCCASION & STYLE STYLIST CATALOGUE (NO PRICES, VALUE FOCUSED)
-   ========================================================================== */
-const catalogItems = [
+const products = [
   {
-    id: "saree-kanjivaram-1",
+    id: "saree-kanjivaram-royal",
     title: {
-      en: "Heritage Bridal Kanjeevaram Pure Silk",
-      kn: "ಕಾಂಚೀವರಂ ಪ್ಯೂರ್ ಸಿಲ್ಕ್ ಮುಹೂರ್ತ ಸ್ಯಾರಿ"
+      en: "Royal Emerald Bridal Kanjeevaram Pure Silk",
+      kn: "ರಾಯಲ್ ಕಾಂಚೀವರಂ ಪ್ಯೂರ್ ಸಿಲ್ಕ್ ಮುಹೂರ್ತ ಸ್ಯಾರಿ"
     },
-    category: "Sarees / ಸ್ಯಾರೀಸ್",
-    target: "women",
-    occasion: "wedding",
-    tier: "bridal",
+    category: "sarees",
+    brand: "JANATHA SILKS SORABA",
+    rating: "4.9 ★",
     image: "assets/hero_saree.jpg",
-    badge: "Bridal Muhurtham",
-    description: {
-      en: "Pure silk with traditional temple zari border and grand pallu, rich emerald & crimson tones for wedding rituals.",
-      kn: "ಶುದ್ಧ ರೇಷ್ಮೆ ಹಾಗೂ ದೇವಸ್ಥಾನದ ಜರಿ ಬಾರ್ಡರ್ ಒಳಗೊಂಡ ಸಾಂಪ್ರದಾಯಿಕ ಮುಹೂರ್ತ ಸ್ಯಾರಿ."
+    snippet: {
+      en: "Authentic pure silk weave with rich zari temple border and crimson pallu for bridal Muhurthams.",
+      kn: "ದೇವಸ್ಥಾನದ ಸಾಂಪ್ರದಾಯಿಕ ಜರಿ ಬಾರ್ಡರ್ ಹಾಗೂ ಭವ್ಯ ಪಲ್ಲು ಒಳಗೊಂಡ ಶುದ್ಧ ರೇಷ್ಮೆ ಸ್ಯಾರಿ."
+    },
+    valueBadge: {
+      en: "Direct Weaver Value",
+      kn: "ಮಗ್ಗದ ನೇರ ಬೆಲೆ"
     }
   },
   {
-    id: "mens-panche-kurta-1",
+    id: "saree-softsilk-pastel",
     title: {
-      en: "Royal Silk Kurta & Zari Panche Set",
+      en: "Soft Silk & Banarasi Pastel Floral Weave",
+      kn: "ಸಾಫ್ಟ್ ಸಿಲ್ಕ್ & ಬನಾರಸಿ ಪೇಸ್ಟಲ್ ಸ್ಯಾರಿ"
+    },
+    category: "sarees",
+    brand: "JANATHA SILKS SORABA",
+    rating: "4.8 ★",
+    image: "assets/saree_variety.jpg",
+    snippet: {
+      en: "Featherlight soft silk drape with subtle zari motifs, easy to wear for Gruha Pravesha and family pujas.",
+      kn: "ಗೃಹಪ್ರವೇಶ ಮತ್ತು ಪೂಜೆಗಳಿಗೆ ಲಘುವಾದ ತೂಕ ಮತ್ತು ಸೊಗಸಾದ ವಿನ್ಯಾಸದ ಸಾಫ್ಟ್ ಸಿಲ್ಕ್."
+    },
+    valueBadge: {
+      en: "Gruha Pravesha Favorite",
+      kn: "ಗೃಹಪ್ರವೇಶ ವಿಶೇಷ"
+    }
+  },
+  {
+    id: "mens-panche-kurta",
+    title: {
+      en: "Royal Ivory Silk Kurta & Zari Panche Set",
       kn: "ರಾಯಲ್ ಸಿಲ್ಕ್ ಕುರ್ತಾ & ಜರಿ ಪಂಚೆ-ಶಲ್ಯ ಸೆಟ್"
     },
-    category: "Men's Ethnic / ಪುರುಷರ ವಸ್ತ್ರ",
-    target: "men",
-    occasion: "wedding",
-    tier: "bridal",
+    category: "men",
+    brand: "JANATHA MEN ETHNIC",
+    rating: "4.9 ★",
     image: "assets/mens_ethnic.jpg",
-    badge: "Groom & Festive",
-    description: {
-      en: "Pure raw silk ivory kurta paired with authentic golden border Panche (Dhoti) and matching Shalya.",
+    snippet: {
+      en: "Raw silk ivory kurta with matching traditional golden border Panche (Dhoti) and Shalya.",
       kn: "ಮದುವೆ ಹಾಗೂ ಹಬ್ಬಗಳಿಗೆ ಹೊಂದುವ ಶುದ್ಧ ರಾ-ಸಿಲ್ಕ್ ಕುರ್ತಾ ಮತ್ತು ಜರಿ ಪಂಚೆ ಸೆಟ್."
+    },
+    valueBadge: {
+      en: "Groom & Festive Set",
+      kn: "ವರನ ವಿವಾಹ ಸೆಟ್"
     }
   },
   {
-    id: "kids-pattu-pavada-1",
+    id: "kids-festive-pattu",
     title: {
-      en: "Festive Pattu Pavada & Boys Silk Dhoti Set",
-      kn: "ಮಕ್ಕಳ ಪಟ್ಟು ಪಾವಡೆ & ಸಿಲ್ಕ್ ಕುರ್ತಾ ಸೆಟ್"
+      en: "Traditional Pattu Pavada & Boys Silk Dhoti",
+      kn: "ಮಕ್ಕಳ ಪಟ್ಟು ಪಾವಡೆ & ಸಿಲ್ಕ್ ಧೋತಿ ಸೆಟ್"
     },
-    category: "Kids / ಮಕ್ಕಳ ಸಂಗ್ರಹ",
-    target: "kids",
-    occasion: "festival",
-    tier: "festive",
+    category: "kids",
+    brand: "JANATHA JUNIOR",
+    rating: "4.8 ★",
     image: "assets/kids_festive.jpg",
-    badge: "Festive Favorite",
-    description: {
-      en: "Bright, skin-friendly traditional silk pavada for girls and designer kurtas for young boys.",
+    snippet: {
+      en: "Skin-friendly, gentle pure silk pattu pavada for girls and festive kurta sets for young boys.",
       kn: "ಹಬ್ಬದ ದಿನಗಳಲ್ಲಿ ಮಕ್ಕಳಿಗೆ ಆರಾಮದಾಯಕ ಹಾಗೂ ಸಾಂಪ್ರದಾಯಿಕ ಹೊಳಪು ನೀಡುವ ಉಡುಪುಗಳು."
-    }
-  },
-  {
-    id: "saree-banarasi-softsilk",
-    title: {
-      en: "Soft Silk & Banarasi Pastel Weave",
-      kn: "ಸಾಫ್ಟ್ ಸಿಲ್ಕ್ & ಬನಾರಸಿ ರೇಷ್ಮೆ ಸ್ಯಾರಿ"
     },
-    category: "Sarees / ಸ್ಯಾರೀಸ್",
-    target: "women",
-    occasion: "housewarming",
-    tier: "festive",
-    image: "assets/saree_variety.jpg",
-    badge: "Gruha Pravesha Pick",
-    description: {
-      en: "Lightweight, easy to drape soft silk saree with intricate silver and gold floral motifs for housewarming celebrations.",
-      kn: "ಗೃಹಪ್ರವೇಶ ಮತ್ತು ಸತ್ಸಂಗಗಳಿಗೆ ಲಘುವಾದ ತೂಕ ಮತ್ತು ಸೊಗಸಾದ ವಿನ್ಯಾಸದ ಸಾಫ್ಟ್ ಸಿಲ್ಕ್ ಸ್ಯಾರಿ."
+    valueBadge: {
+      en: "Festive Collection",
+      kn: "ಮಕ್ಕಳ ಹಬ್ಬದ ಸಂಭ್ರಮ"
     }
   },
   {
-    id: "comfort-lounge-active",
+    id: "saree-organza-trending",
     title: {
-      en: "Cotton Nightwear & Active Sportswear Sets",
-      kn: "ಕಾಟನ್ ನೈಟ್‌ವೇರ್ & ಸ್ಪೋರ್ಟ್ಸ್ ಟ್ರ್ಯಾಕ್ಸ್"
-    },
-    category: "Comfort & Sportswear / ನೈಟ್‌ವೇರ್",
-    target: "women",
-    occasion: "sleep",
-    tier: "daily",
-    image: "assets/nightwear_sportswear.jpg",
-    badge: "Daily Comfort",
-    description: {
-      en: "Breathable 100% cotton nighties, chic loungewear pajama sets, and high-stretch gym activewear.",
-      kn: "ಆರಾಮದಾಯಕ ನೈಟಿಗಳು, ಪೈಜಾಮಾ ಸೆಟ್‌ಗಳು ಮತ್ತು ವ್ಯಾಯಾಮಕ್ಕೆ ತಕ್ಕ ಸ್ಪೋರ್ಟ್ಸ್ ವೇರ್."
-    }
-  },
-  {
-    id: "genz-trendy-organza",
-    title: {
-      en: "Pastel Organza & Modern Drape",
+      en: "Lilac Organza & Delicate Scalloped Drape",
       kn: "ಮಾಡರ್ನ್ ಆರ್ಗನ್ಜಾ & ಜಾರ್ಜೆಟ್ ಸ್ಯಾರಿ"
     },
-    category: "Trending Drape / ನವೀನ ಸ್ಯಾರಿ",
-    target: "women",
-    occasion: "casual",
-    tier: "daily",
+    category: "sarees",
+    brand: "JANATHA TRENDS",
+    rating: "4.9 ★",
     image: "assets/reel_saree.jpg",
-    badge: "Curated Style",
-    description: {
-      en: "Soft airy pastel hues, scalloped delicate borders, and floral embroidery suited for receptions and family functions.",
+    snippet: {
+      en: "Trendy pastel organza with delicate hand-embroidery and scalloped borders, popular for receptions.",
       kn: "ಹಗುರವಾದ ಬಣ್ಣಗಳು ಹಾಗೂ ಸುಲಭವಾಗಿ ಧರಿಸಬಹುದಾದ ಸೊಗಸಾದ ಆರ್ಗನ್ಜಾ ಸ್ಯಾರಿ."
-    }
-  },
-  {
-    id: "mens-casual-linen",
-    title: {
-      en: "Festive Kurta Jacket & Casual Linens",
-      kn: "ಫೆಸ್ಟಿವ್ ಕುರ್ತಾ ಜಾಕೆಟ್ & ಲಿನನ್ ಶರ್ಟ್ಸ್",
     },
-    category: "Men's Wear / ಪುರುಷರ ಉಡುಪು",
-    target: "men",
-    occasion: "festival",
-    tier: "festive",
-    image: "assets/reel_men.jpg",
-    badge: "Contemporary Men",
-    description: {
-      en: "Contemporary ethnic tailored Nehru jackets, breathable linen kurtas, and smart formal shirts for all occasions.",
-      kn: "ಆಧುನಿಕ ಶೈಲಿಯ ಜಾಕೆಟ್‌ಗಳು, ಲಿನನ್ ಶರ್ಟ್‌ಗಳು ಮತ್ತು ಸಮಾರಂಭಗಳಿಗೆ ತಕ್ಕ ಉಡುಪುಗಳು."
+    valueBadge: {
+      en: "Ajio Trend Pick",
+      kn: "ನವೀನ ಟ್ರೆಂಡ್ ಆಯ್ಕೆ"
     }
   },
   {
-    id: "store-family-package",
+    id: "mens-festive-jacket",
     title: {
-      en: "Complete Family Wedding Bulk Combo",
+      en: "Textured Olive Nehru Jacket & Linen Kurta",
+      kn: "ಫೆಸ್ಟಿವ್ ಕುರ್ತಾ ಜಾಕೆಟ್ & ಲಿನನ್ ಶರ್ಟ್ಸ್"
+    },
+    category: "men",
+    brand: "JANATHA MEN ETHNIC",
+    rating: "4.8 ★",
+    image: "assets/reel_men.jpg",
+    snippet: {
+      en: "Contemporary ethnic tailored Nehru jacket paired with breathable cotton-linen kurta.",
+      kn: "ಆಧುನಿಕ ಶೈಲಿಯ ಜಾಕೆಟ್‌ಗಳು, ಲಿನನ್ ಶರ್ಟ್‌ಗಳು ಮತ್ತು ಸಮಾರಂಭಗಳಿಗೆ ತಕ್ಕ ಉಡುಪುಗಳು."
+    },
+    valueBadge: {
+      en: "Contemporary Men",
+      kn: "ಮಾಡರ್ನ್ ಎತ್ನಿಕ್"
+    }
+  },
+  {
+    id: "comfort-nightwear-sports",
+    title: {
+      en: "100% Cotton Nightwear & Gym Active Trackset",
+      kn: "ಕಾಟನ್ ನೈಟ್‌ವೇರ್ & ಸ್ಪೋರ್ಟ್ಸ್ ಟ್ರ್ಯಾಕ್ಸ್"
+    },
+    category: "comfort",
+    brand: "JANATHA COMFORT",
+    rating: "4.7 ★",
+    image: "assets/nightwear_sportswear.jpg",
+    snippet: {
+      en: "Breathable pure cotton nighties, chic loungewear coordinate pajamas, and athletic stretch gym wear.",
+      kn: "ಆರಾಮದಾಯಕ ನೈಟಿಗಳು, ಪೈಜಾಮಾ ಸೆಟ್‌ಗಳು ಮತ್ತು ವ್ಯಾಯಾಮಕ್ಕೆ ತಕ್ಕ ಸ್ಪೋರ್ಟ್ಸ್ ವೇರ್."
+    },
+    valueBadge: {
+      en: "Daily Comfort Value",
+      kn: "ನಿತ್ಯೋಪಯೋಗಿ ಆರಾಮ"
+    }
+  },
+  {
+    id: "occasion-marriage-bulk",
+    title: {
+      en: "Complete Family Wedding Bulk Combo Package",
       kn: "ಸಂಪೂರ್ಣ ಮದುವೆ ಫ್ಯಾಮಿಲಿ ಕಾಂಬೋ ಪ್ಯಾಕೇಜ್"
     },
-    category: "Family Combo / ಫ್ಯಾಮಿಲಿ ಪ್ಯಾಕ್",
-    target: "all",
-    occasion: "wedding",
-    tier: "bridal",
+    category: "occasions",
+    brand: "JANATHA WHOLESALE",
+    rating: "5.0 ★",
     image: "assets/store_showroom.jpg",
-    badge: "Wholesale Value",
-    description: {
-      en: "Specially curated packages for bride, groom, parents, and return gifts (taamboola sarees & dhotis) at direct wholesale value.",
+    snippet: {
+      en: "Curated packages for bride, groom, parents, and return gifts (taamboola sarees & dhotis) at direct wholesale rates.",
       kn: "ಮನೆ ಮದುವೆಗಳಿಗೆ ವಧು-ವರರು, ಬಂಧುಗಳಿಗೆ ಬಟ್ಟೆಗಳು ಹಾಗೂ ತಾಂಬೂಲ ಸೀರೆಗಳ ಸಗಟು ದರದ ಪ್ಯಾಕೇಜ್."
+    },
+    valueBadge: {
+      en: "Direct Wholesale Package",
+      kn: "ಸಗಟು ಪ್ಯಾಕೇಜ್ ದರ"
+    }
+  },
+  {
+    id: "saree-daily-handloom-cotton",
+    title: {
+      en: "Pure Malnad Handloom Cotton & Ilkal Weave",
+      kn: "ಶುದ್ಧ ಹ್ಯಾಂಡ್‌ಲೂಮ್ ಕಾಟನ್ & ಇಳಕಲ್ ಸ್ಯಾರಿ"
+    },
+    category: "sarees",
+    brand: "JANATHA SILKS SORABA",
+    rating: "4.8 ★",
+    image: "assets/saree_variety.jpg",
+    snippet: {
+      en: "100% natural breathable cotton with authentic traditional borders, ideal for daily office & temple wear.",
+      kn: "ದೈನಂದಿನ ಹಾಗೂ ಕಚೇರಿ ಬಳಕೆಗೆ ಆರಾಮದಾಯಕವಾದ ನೈಸರ್ಗಿಕ ಹ್ಯಾಂಡ್‌ಲೂಮ್ ಕಾಟನ್ ಸ್ಯಾರಿ."
+    },
+    valueBadge: {
+      en: "Daily Wear Best Value",
+      kn: "ದೈನಂದಿನ ಬೆಸ್ಟ್ ಚಾಯ್ಸ್"
     }
   }
 ];
 
-let selectedOccasion = 'all';
-let selectedTarget = 'all';
-let selectedTier = 'all';
+let activeCategory = 'all';
+let searchQuery = '';
 
-function initStylistFilter() {
-  const occasionBtns = document.querySelectorAll('[data-filter-occasion]');
-  const targetBtns = document.querySelectorAll('[data-filter-target]');
-  const tierBtns = document.querySelectorAll('[data-filter-tier]');
-
-  occasionBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      occasionBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedOccasion = btn.getAttribute('data-filter-occasion');
-      renderStylistResults();
-    });
-  });
-
-  targetBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      targetBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedTarget = btn.getAttribute('data-filter-target');
-      renderStylistResults();
-    });
-  });
-
-  tierBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tierBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedTier = btn.getAttribute('data-filter-tier');
-      renderStylistResults();
-    });
-  });
-
-  renderStylistResults();
+/* ==========================================================================
+   RENDER PRODUCT CARDS (MYNTRA & AJIO 3:4 E-COMMERCE CARDS)
+   ========================================================================== */
+function initProductsCatalog() {
+  updatePillCounts();
+  renderProducts();
 }
 
-function renderStylistResults() {
-  const container = document.getElementById('stylistResultsGrid');
-  if (!container) return;
+function updatePillCounts() {
+  const counts = {
+    all: products.length,
+    sarees: products.filter(p => p.category === 'sarees').length,
+    men: products.filter(p => p.category === 'men').length,
+    kids: products.filter(p => p.category === 'kids').length,
+    occasions: products.filter(p => p.category === 'occasions').length,
+    comfort: products.filter(p => p.category === 'comfort').length,
+  };
 
-  const filtered = catalogItems.filter(item => {
-    const matchOccasion = (selectedOccasion === 'all') || (item.occasion === selectedOccasion) || (item.occasion === 'all');
-    const matchTarget = (selectedTarget === 'all') || (item.target === selectedTarget) || (item.target === 'all');
-    const matchTier = (selectedTier === 'all') || (item.tier === selectedTier);
-    return matchOccasion && matchTarget && matchTier;
+  const countAll = document.getElementById('countAll');
+  if (countAll) countAll.innerText = counts.all;
+  const countSarees = document.getElementById('countSarees');
+  if (countSarees) countSarees.innerText = counts.sarees;
+  const countMen = document.getElementById('countMen');
+  if (countMen) countMen.innerText = counts.men;
+  const countKids = document.getElementById('countKids');
+  if (countKids) countKids.innerText = counts.kids;
+  const countOccasions = document.getElementById('countOccasions');
+  if (countOccasions) countOccasions.innerText = counts.occasions;
+  const countComfort = document.getElementById('countComfort');
+  if (countComfort) countComfort.innerText = counts.comfort;
+}
+
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  if (!grid) return;
+
+  const wishlist = getWishlist();
+
+  const filtered = products.filter(item => {
+    const matchCat = (activeCategory === 'all') || (item.category === activeCategory);
+    let matchQuery = true;
+    if (searchQuery.trim() !== '') {
+      const q = searchQuery.toLowerCase().trim();
+      const titleEn = item.title.en.toLowerCase();
+      const titleKn = item.title.kn.toLowerCase();
+      const snippetEn = item.snippet.en.toLowerCase();
+      const brand = item.brand.toLowerCase();
+      matchQuery = titleEn.includes(q) || titleKn.includes(q) || snippetEn.includes(q) || brand.includes(q);
+    }
+    return matchCat && matchQuery;
   });
 
   if (filtered.length === 0) {
-    container.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 3rem 1rem; background: var(--bg-surface); border-radius: var(--radius-md); border: 1px dashed var(--border-medium);">
-        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">
-          ${currentLang === 'kn' ? 'ಜನತಾ ಸ್ಯಾರೀಸ್ ಮಳಿಗೆಯಲ್ಲಿ ಇನ್ನೂ ಸಾವಿರಾರು ಮಾದರಿಗಳು ಲಭ್ಯವಿವೆ!' : 'Thousands more varieties are available in our Soraba showroom!'}
+    grid.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 3rem 1rem; background: #FFFFFF; border-radius: var(--radius-md); border: 1px dashed var(--border-medium);">
+        <p style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+          ${currentLang === 'kn' ? 'ಯಾವುದೇ ಉಡುಪುಗಳು ಕಂಡುಬಂದಿಲ್ಲ' : 'No items match your search'}
         </p>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-          ${currentLang === 'kn' ? 'ನಿಮಗೆ ಬೇಕಾದ ನಿರ್ದಿಷ್ಟ ವಿನ್ಯಾಸ ಅಥವಾ ಬಣ್ಣದ ಬಗ್ಗೆ ನೇರವಾಗಿ WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ.' : 'Looking for a specific color, weave, or design? Message us directly on WhatsApp.'}
+        <p style="color: var(--text-muted); margin-bottom: 1.25rem;">
+          ${currentLang === 'kn' ? 'ಜನತಾ ಸ್ಯಾರೀಸ್ ಸೊರಬ ಶೋರೂಮ್‌ನಲ್ಲಿ ಇನ್ನೂ ಸಾವಿರಾರು ಮಾದರಿಗಳು ಲಭ್ಯವಿವೆ! ನೇರವಾಗಿ WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ.' : 'Thousands more varieties are available in our Soraba showroom! Message us directly on WhatsApp.'}
         </p>
-        <button class="btn btn-whatsapp" onclick="openWhatsAppChat('General Enquiry for Custom Outfits in Soraba')">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          ${currentLang === 'kn' ? 'WhatsApp ನಲ್ಲಿ ನಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ' : 'Chat with Janatha Sarees Soraba on WhatsApp'}
+        <button class="btn-order-whatsapp" style="max-width: 320px; margin: 0 auto;" onclick="openWhatsAppChat('Inquiry about out of catalog designs in Soraba')">
+          <span>${currentLang === 'kn' ? 'WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ' : 'Inquire on WhatsApp'}</span>
         </button>
       </div>
     `;
     return;
   }
 
-  container.innerHTML = filtered.map(item => {
+  grid.innerHTML = filtered.map(item => {
     const title = item.title[currentLang] || item.title.en;
-    const desc = item.description[currentLang] || item.description.en;
-    const whatsappText = encodeURIComponent(`Namaskara Janatha Sarees Soraba! I saw "${item.title.en}" on your website and would like to know the price and available colors/designs.`);
+    const snippet = item.snippet[currentLang] || item.snippet.en;
+    const valueBadge = item.valueBadge[currentLang] || item.valueBadge.en;
+    const isWishlisted = wishlist.includes(item.id);
+    const whatsappMsg = encodeURIComponent(`Namaskara Janatha Sarees Soraba! I saw "${item.title.en}" on your online trending catalog. Please share color options, fabric details, and direct weaver pricing.`);
 
     return `
-      <article class="product-card" id="${item.id}">
-        <div class="product-thumb">
+      <article class="ecom-product-card" id="${item.id}">
+        <div class="product-image-box">
           <img src="${item.image}" alt="${title} - Janatha Sarees Soraba" loading="lazy">
-          <span class="product-tag-floating">${item.badge}</span>
+          <span class="floating-rating-tag"><span class="star">★</span> ${item.rating.replace('★', '').trim()}</span>
+          <button class="floating-wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="toggleWishlistItem('${item.id}')" title="Save to Wishlist" aria-label="Toggle Wishlist">
+            <svg fill="${isWishlisted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
         </div>
-        <div class="product-body">
-          <span class="product-cat">${item.category}</span>
-          <h3 class="product-title">${title}</h3>
-          <p class="product-desc">${desc}</p>
-          <div class="product-value-strip">
-            <span class="value-highlight">
-              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              ${currentLang === 'kn' ? 'ಅತ್ಯುತ್ತಮ ಕೈಗೆಟುಕುವ ದರ' : 'Affordable Value Guaranteed'}
-            </span>
+        <div class="product-card-body">
+          <span class="product-brand-line">${item.brand}</span>
+          <h3 class="product-name-title" title="${title}">${title}</h3>
+          <p class="product-snippet">${snippet}</p>
+          <div class="product-value-pill">
+            <span>🏷️ ${valueBadge}</span>
           </div>
-          <div class="product-actions">
-            <a href="https://wa.me/919481234567?text=${whatsappText}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" aria-label="Inquire about ${title} on WhatsApp">
+          <div class="product-card-footer">
+            <a href="https://wa.me/919481234567?text=${whatsappMsg}" target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-              <span>${currentLang === 'kn' ? 'ಬೆಲೆ & ವಿವರ ವಿಚಾರಿಸಿ' : 'Inquire on WhatsApp'}</span>
+              <span>${currentLang === 'kn' ? 'WhatsApp ನಲ್ಲಿ ವಿಚಾರಿಸಿ' : 'Inquire on WhatsApp'}</span>
             </a>
-            <button class="btn btn-outline" onclick="saveToMyWishlist('${item.id}', '${item.title.en}')" title="Save to Visit Checklist">
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
           </div>
         </div>
       </article>
@@ -424,62 +378,263 @@ function renderStylistResults() {
 }
 
 /* ==========================================================================
-   WHATSAPP HELPER FUNCTION
+   LIVE REAL-TIME SEARCH (DESKTOP & MOBILE INPUTS)
    ========================================================================== */
-function openWhatsAppChat(topic) {
-  const msg = encodeURIComponent(`Namaskara Janatha Sarees Soraba! I am reaching out from your website regarding: ${topic}. Please share details and available options.`);
-  window.open(`https://wa.me/919481234567?text=${msg}`, '_blank');
+function initSearch() {
+  const globalInput = document.getElementById('globalSearchInput');
+  const mobileInput = document.getElementById('mobileSearchInput');
+
+  function handleInput(e) {
+    searchQuery = e.target.value;
+    if (globalInput && globalInput !== e.target) globalInput.value = searchQuery;
+    if (mobileInput && mobileInput !== e.target) mobileInput.value = searchQuery;
+
+    renderProducts();
+
+    // If user is searching, scroll smoothly toward catalog if not in view
+    const catalog = document.getElementById('catalog');
+    if (catalog && searchQuery.length === 2) {
+      catalog.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  if (globalInput) globalInput.addEventListener('input', handleInput);
+  if (mobileInput) mobileInput.addEventListener('input', handleInput);
 }
 
 /* ==========================================================================
-   WISHLIST / "MY VISIT LIST" FOR ELDERS & SHOPPERS
+   CATEGORY FILTERS (PILLS, STORIES, TILES, HEADER NAV)
    ========================================================================== */
-function saveToMyWishlist(id, name) {
-  let list = JSON.parse(localStorage.getItem('janatha_wishlist') || '[]');
-  if (!list.includes(name)) {
-    list.push(name);
-    localStorage.setItem('janatha_wishlist', JSON.stringify(list));
-    alert(currentLang === 'kn' ? 
-      `"${name}" ನಿಮ್ಮ ಮಳಿಗೆ ಭೇಟಿ ಪಟ್ಟಿಗೆ ಸೇರ್ಪಡೆಗೊಂಡಿದೆ!` : 
-      `Added "${name}" to your Store Visit List! You can show this list at the store counter in Soraba.`
-    );
+function initCategoryFilters() {
+  // Filter pills
+  const pills = document.querySelectorAll('.filter-pill[data-filter]');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeCategory = pill.getAttribute('data-filter');
+      updateActiveCategoryText();
+      renderProducts();
+    });
+  });
+
+  // Story circles
+  const storyItems = document.querySelectorAll('.story-item[data-category]');
+  storyItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const cat = item.getAttribute('data-category');
+      selectCategory(cat);
+    });
+  });
+
+  // Category showcase tiles
+  const tiles = document.querySelectorAll('.cat-tile[data-category]');
+  tiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+      const cat = tile.getAttribute('data-category');
+      selectCategory(cat);
+    });
+  });
+
+  // Desktop nav links
+  const navLinks = document.querySelectorAll('.cat-nav-link[data-category]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const cat = link.getAttribute('data-category');
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      selectCategory(cat);
+    });
+  });
+}
+
+function selectCategory(cat) {
+  activeCategory = cat;
+
+  // Sync filter pills
+  document.querySelectorAll('.filter-pill[data-filter]').forEach(pill => {
+    if (pill.getAttribute('data-filter') === cat) {
+      pill.classList.add('active');
+    } else {
+      pill.classList.remove('active');
+    }
+  });
+
+  // Sync desktop nav links
+  document.querySelectorAll('.cat-nav-link[data-category]').forEach(link => {
+    if (link.getAttribute('data-category') === cat) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+  updateActiveCategoryText();
+  renderProducts();
+
+  const catalog = document.getElementById('catalog');
+  if (catalog) {
+    catalog.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function updateActiveCategoryText() {
+  const badge = document.getElementById('activeFilterBadge');
+  if (!badge) return;
+  const dict = translations[currentLang] || translations.en;
+  if (activeCategory === 'all') {
+    badge.innerText = dict.showingAll;
   } else {
-    alert(currentLang === 'kn' ? 'ಈಗಾಗಲೇ ನಿಮ್ಮ ಭೇಟಿ ಪಟ್ಟಿಯಲ್ಲಿದೆ!' : 'Already in your visit list!');
+    badge.innerText = dict[activeCategory] || activeCategory.toUpperCase();
   }
 }
 
 /* ==========================================================================
-   FAQ ACCORDION (AEO ALIGNED)
+   WISHLIST / MY VISIT LIST ENGINE (WITH SLIDE-OVER DRAWER)
+   ========================================================================== */
+function getWishlist() {
+  try {
+    return JSON.parse(localStorage.getItem('janatha_wishlist') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveWishlist(list) {
+  localStorage.setItem('janatha_wishlist', JSON.stringify(list));
+  updateWishlistBadges();
+}
+
+function updateWishlistBadges() {
+  const list = getWishlist();
+  const count = list.length;
+  const headerBadge = document.getElementById('wishlistCountBadge');
+  if (headerBadge) headerBadge.innerText = count;
+  const mobileBadge = document.getElementById('mobileWishlistBadge');
+  if (mobileBadge) mobileBadge.innerText = count;
+  const drawerCount = document.getElementById('drawerWishlistCount');
+  if (drawerCount) drawerCount.innerText = count;
+}
+
+function toggleWishlistItem(id) {
+  let list = getWishlist();
+  if (list.includes(id)) {
+    list = list.filter(item => item !== id);
+  } else {
+    list.push(id);
+  }
+  saveWishlist(list);
+  renderProducts();
+  renderWishlistDrawer();
+}
+
+function initWishlist() {
+  updateWishlistBadges();
+
+  const headerBtn = document.getElementById('headerWishlistBtn');
+  const mobileBtn = document.getElementById('mobileWishlistBtn');
+  const drawer = document.getElementById('wishlistDrawer');
+  const closeBtn = document.getElementById('closeWishlistBtn');
+  const shareBtn = document.getElementById('shareWishlistWhatsAppBtn');
+
+  function openDrawer() {
+    renderWishlistDrawer();
+    if (drawer) drawer.classList.add('open');
+  }
+
+  function closeDrawer() {
+    if (drawer) drawer.classList.remove('open');
+  }
+
+  if (headerBtn) headerBtn.addEventListener('click', openDrawer);
+  if (mobileBtn) mobileBtn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+
+  if (drawer) {
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) closeDrawer();
+    });
+  }
+
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      const list = getWishlist();
+      if (list.length === 0) {
+        alert(translations[currentLang].emptyWishlist);
+        return;
+      }
+      const wishProducts = products.filter(p => list.includes(p.id));
+      const titles = wishProducts.map((p, idx) => `${idx + 1}. ${p.title.en} (${p.brand})`).join('%0A');
+      const text = encodeURIComponent(`Namaskara Janatha Sarees Soraba! Here is my Wishlist / Store Visit List from your website:%0A%0A`) + titles + encodeURIComponent(`%0A%0APlease let me know availability and direct pricing when I visit the Soraba showroom.`);
+      window.open(`https://wa.me/919481234567?text=${text}`, '_blank');
+    });
+  }
+}
+
+function renderWishlistDrawer() {
+  const container = document.getElementById('wishlistDrawerBody');
+  if (!container) return;
+
+  const list = getWishlist();
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom: 1rem; opacity: 0.5;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <p style="font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+          ${translations[currentLang].emptyWishlist}
+        </p>
+        <p style="font-size: 0.82rem;">
+          Save looks for wedding Muhurthams, Gruha Pravesha, or your upcoming showroom visit to Soraba.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  const wishProducts = products.filter(p => list.includes(p.id));
+  container.innerHTML = wishProducts.map(p => {
+    const title = p.title[currentLang] || p.title.en;
+    return `
+      <div style="display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border-light); align-items: center;">
+        <img src="${p.image}" alt="${title}" style="width: 60px; height: 80px; object-fit: cover; border-radius: var(--radius-xs);">
+        <div style="flex-grow: 1;">
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-muted);">${p.brand}</div>
+          <div style="font-size: 0.88rem; font-weight: 800; color: var(--primary); line-height: 1.2;">${title}</div>
+          <div style="font-size: 0.72rem; color: var(--accent-emerald); font-weight: 800; margin-top: 0.2rem;">${p.valueBadge[currentLang] || p.valueBadge.en}</div>
+        </div>
+        <button onclick="toggleWishlistItem('${p.id}')" style="color: var(--text-muted); padding: 0.4rem; font-size: 1.1rem;" title="Remove from list">✕</button>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ==========================================================================
+   AEO FAQ ACCORDION
    ========================================================================== */
 function initFaqAccordion() {
   const items = document.querySelectorAll('.faq-item');
   items.forEach(item => {
-    const btn = item.querySelector('.faq-question-btn');
+    const btn = item.querySelector('.faq-btn');
+    if (!btn) return;
     btn.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
-      items.forEach(i => i.classList.remove('active'));
+      items.forEach(i => {
+        i.classList.remove('active');
+        const b = i.querySelector('.faq-btn');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
       if (!isActive) {
         item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
   });
 }
 
 /* ==========================================================================
-   MOBILE MENU NAVIGATION
+   WHATSAPP HELPER FUNCTION
    ========================================================================== */
-function initMobileMenu() {
-  const toggleBtn = document.querySelector('.mobile-menu-toggle');
-  const nav = document.querySelector('.main-nav');
-  if (!toggleBtn || !nav) return;
-
-  toggleBtn.addEventListener('click', () => {
-    nav.classList.toggle('mobile-active');
-  });
-
-  nav.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('mobile-active');
-    });
-  });
+function openWhatsAppChat(topic) {
+  const msg = encodeURIComponent(`Namaskara Janatha Sarees Soraba! I am reaching out from your trending online website regarding: ${topic}. Please share details and available options.`);
+  window.open(`https://wa.me/919481234567?text=${msg}`, '_blank');
 }
