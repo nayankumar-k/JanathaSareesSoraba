@@ -1,82 +1,142 @@
 # Janatha Sarees - Soraba (ಜನತಾ ಸ್ಯಾರೀಸ್, ಸೊರಬ)
 > **Premier Saree & Family Clothing Store in Soraba, Shivamogga, Karnataka**  
-> *Designed with Stitch MCP ("Malnad Silk Heritage" Design System) • Gen-Z & Multi-Generational Accessible • AEO & Local GEO Optimized • Built for GitHub Pages*
+> *Designed with Stitch MCP ("Malnad Silk Heritage" Design System) • Mobile-First & Touch-Optimized • Rich & Energetic Ethnic Aesthetics • AEO & Local GEO Optimized • Built for GitHub Pages*
 
 ---
 
 ## 🌟 Overview & Key Offerings
 
-**Janatha Sarees** is Soraba’s cherished family retail textile destination, located on Car Street (Ratha Beedi) near the Old Bus Stand. This website represents a digital storefront crafted to bring traditional Malnad hospitality together with modern, high-converting digital convenience.
+**Janatha Sarees** is Soraba’s cherished family retail textile destination, located on Car Street (Ratha Beedi) near the Old Bus Stand. This website serves as a high-performance digital storefront blending traditional Malnad hospitality with contemporary, thumb-friendly mobile commerce.
 
-- **Sarees Collection**: Bridal Kanjeevarams, Pure Banarasi, Soft Silks, Authentic Ilkal weaves, Daily Wear Cottons, Floral Chiffons, Georgettes, and trending Organza.
+- **Sarees Collection**: Bridal Kanjeevarams, Pure Banarasi, Soft Silks, Authentic Ilkal weaves, Daily Wear Handloom Cottons, Floral Chiffons, Georgettes, and trending Organza.
 - **Men's Ethnic & Formals**: Traditional Silk Panche (Dhoti) with Zari borders, matching Shalyas, Raw Silk Wedding Kurtas, Nehru Jackets, and Formal Shirts.
 - **Kids' Festive Couture**: Traditional Pattu Pavada / Langas for girls, boys' Silk Kurta-Dhoti sets, party frocks, and festive ensembles.
 - **Occasions & Events**: Comprehensive wardrobes for Marriages (Muhurtham), Gruha Pravesha (Housewarmings), Diwali, Ugadi, and affordable Taamboola return-gift saree packages.
 - **Daily Comfort & Sportswear**: 100% pure cotton nighties, stylish loungewear pajama coordinates, and high-stretch activewear/gym tracks.
-- **Pricing Policy**: Direct-from-weavers affordable retail & wholesale value. No inflated numbers or gimmicky price tags — customers inquire directly on WhatsApp or visit the store for personalized recommendations and best daily rates.
+- **Honest Pricing Policy**: Direct-from-weavers affordable retail & wholesale value. No artificial or inflated price tags — customers inquire directly on WhatsApp or visit the showroom for personalized recommendations, color choices, and best daily rates.
 
 ---
 
-## 🎨 Design Philosophy: "Malnad Silk Heritage" (via Stitch MCP)
+## 📱 Mobile-First Design & Fluid Scrolling
 
-This storefront was built using the **Malnad Silk Heritage** design system derived directly via **Stitch MCP**:
-1. **Curated Color Palette**:
-   - `Primary (#0C3B2E)`: Royal Peacock Green reflecting Malnad lush hills and traditional temple silks.
-   - `Secondary (#E5A93C)`: Marigold Gold and Temple Zari metallic gradient.
-   - `Tertiary (#D62276)`: Vibrant Rani Pink / Festive Sindhoor for celebration callouts.
-   - `Canvas (#FDFBF7)`: Raw silk ivory tone eliminating sterile digital whites.
-2. **Gen-Z Appeal & Contemporary Styling**:
-   - **Editorial Bento Grid**: Modern asymmetric modules highlighting collections with clean hover physics.
-   - **Janatha Style Inspiration**: Clean portrait lookbook cards featuring genuine traditional & modern drapes with direct WhatsApp inquiry.
-   - **Interactive Occasion & Style Matcher**: Interactive filter chips allowing users to select an occasion (Wedding, Gruha Pravesha, Daily), shopper (Women, Men, Kids), and collection tier to explore matching outfits.
-3. **Multi-Generational Accessibility**:
-   - **Bilingual Equilibrium (`EN | ಕನ್ನಡ`)**: Instant toggle between English and Kannada across the entire UI.
-   - **Font-Size Adjuster (`A+ Large`)**: 1-click text scaling for elders and comfortable reading.
-   - **Sticky Mobile Action Dock**: Permanent one-touch access to **Call Store**, **WhatsApp**, and **Google Maps Directions**.
+The storefront has been engineered for effortless single-thumb mobile browsing:
+
+1. **Horizontal Swipe Rails (Touch Carousels)**:
+   - Eliminates tedious 8,000+ pixel vertical scrolling on mobile devices.
+   - **Occasion Stylist**, **Style Inspiration Lookbook**, and **Category Chips** use silky-smooth native horizontal snapping rails (`scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch`).
+   - Shoppers can effortlessly flick left and right with their thumb to explore collections.
+
+2. **Quick Ethnic Category Jump Rail**:
+   - A persistent horizontal navigation ribbon placed right below the header:
+     - 🥻 `ರೇಷ್ಮೆ ಸ್ಯಾರೀಸ್ (Silk Sarees)`
+     - 👑 `ಪುರುಷರ ಪಂಚೆ & ಕುರ್ತಾ (Men's Panche)`
+     - 👧 `ಮಕ್ಕಳ ಪಟ್ಟು ಪಾವಡೆ (Kids Wear)`
+     - 🪔 `ಗೃಹಪ್ರವೇಶ & ಮದುವೆ (Occasions)`
+     - 🌙 `ನೈಟ್‌ವೇರ್ & ಸ್ಪೋರ್ಟ್ಸ್ (Comfort & Active)`
+     - 📍 `ಸೊರಬ ಶೋರೂಮ್ (Visit Store)`
+
+3. **Sticky Mobile Action Dock**:
+   - Always-visible bottom bar on mobile screens providing one-touch access to:
+     - 📞 **Call Store**: Instant direct phone connection (`+91 94812 34567`)
+     - 💬 **WhatsApp**: Pre-filled inquiry chat in Kannada or English
+     - 📍 **Directions**: Instant navigation to Car Street showroom in Soraba via Google Maps
+     - 🥻 **Stylist**: Smooth jump to the interactive look finder
+
+4. **Multi-Generational Accessibility**:
+   - **Bilingual Switcher (`EN | ಕನ್ನಡ`)**: Instant 1-tap translation across all headings, categories, descriptions, and FAQs.
+   - **Font-Size Adjuster (`A+ Large`)**: 1-click text scaling designed for elders and comfortable high-contrast reading.
+   - **Accessible Tap Targets**: All buttons, links, and filter chips feature minimum 44px–48px touch targets with responsive `:active` press feedback.
+
+---
+
+## 🎨 Energetic Ethnic Palette & Aesthetics (via Stitch MCP)
+
+Built upon the **Malnad Silk Heritage** design system generated via **Stitch MCP**, refined for vibrant festive energy:
+
+| Token | Color Code | Significance & Usage |
+| :--- | :--- | :--- |
+| **Royal Peacock Emerald** | `#033829` / `#065F46` | Deep lush green honoring Malnad's Sahyadri forests and grand bridal weaves. |
+| **Temple Zari Gold** | `#F59E0B` / `#FBBF24` | Radiant metallic marigold & gold zari gradients for accents and active states. |
+| **Kumkum Crimson** | `#9F1239` | Auspicious sacred vermilion for wedding rituals and traditional callouts. |
+| **Festive Rani Pink** | `#E11D48` | Celebratory energy for festive highlights and special collections. |
+| **Raw Silk Canvas** | `#FAF6ED` | Warm loom-spun silk ivory undertone eliminating sterile digital whites. |
+
+---
+
+## 🥻 Authentic Photography & Zero Friction
+
+- **Clean Photography (Zero AI Slop)**: All images feature crisp, realistic editorial fashion photography with natural lighting, genuine South Indian draping, and authentic showroom architecture. No distorted text, hallucinated banners, or artificial artifacts.
+- **Genuine & Trustworthy**: No fake view counters (`24.8K`, `19.4K`), fake follower badges, or artificial urgency tickers.
+- **Direct WhatsApp Commerce**: Every product and lookbook card includes an instant 1-tap WhatsApp inquiry button that pre-populates a polite inquiry message with the exact item name.
 
 ---
 
 ## 🔍 AEO & GEO Optimization Strategy
 
 ### 1. Generative Engine Optimization (GEO) & Local Search
-- **Entity Linkages**: Soraba, Sagar, Shivamogga, Sirsi, Shikaripura, Anavatti, Malnad, Karnataka.
-- **LocalBusiness Schema (JSON-LD)**: Embeds precise GPS coordinates (`14.3855, 75.0934`), opening hours (9:30 AM – 9:00 PM all 7 days), accepted payment methods (UPI, GPay, PhonePe, Cards, Cash), telephone, and affordable family price range indicators.
-- **Google Maps Integration**: Direct navigation links centered on Soraba, Karnataka.
+- **Local Geographic Entities**: Soraba, Sagar, Shivamogga, Sirsi, Shikaripura, Anavatti, Malnad, Karnataka.
+- **Schema.org `ClothingStore` JSON-LD**:
+  - Exact GPS coordinates: `14.3855, 75.0934`
+  - Landmark: Near Old Bus Stand, Car Street (ರಥಬೀದಿ), Soraba - 577429
+  - Opening Hours: 9:30 AM – 9:00 PM (Monday to Sunday)
+  - Accepted Payments: UPI (PhonePe, Google Pay, Paytm), Cash, Debit/Credit Cards
+  - Price Tier: `₹₹ (Affordable Family Pricing)`
 
 ### 2. Answer Engine Optimization (AEO)
-- Structured **FAQPage JSON-LD Schema** designed specifically for AI search engines (ChatGPT, Google Gemini, Perplexity, Microsoft Copilot, Apple Intelligence).
-- High-intent conversational Q&As covering:
-  - Exact landmark location in Soraba
-  - Weaves and saree categories available
-  - Availability of men's and kids' wear
-  - Marriage and Gruha Pravesha bulk packages
-  - WhatsApp direct inquiry and customer support
+- Structured **`FAQPage` JSON-LD Schema** formatted for AI conversational search engines (**ChatGPT, Google Gemini, Perplexity, Microsoft Copilot, Apple Intelligence**).
+- Answers high-intent natural queries:
+  - *"Where is Janatha Sarees located in Soraba?"*
+  - *"What varieties of sarees are available?"*
+  - *"Does the shop sell men's and kids' wear?"*
+  - *"Can we purchase bulk wedding and Gruha Pravesha clothing?"*
+  - *"Can we inquire or order via WhatsApp?"*
 
 ---
 
 ## 🚀 How to Host on GitHub Pages (Step-by-Step)
 
-This project is built with zero external build dependencies (pure HTML5, CSS3, and modern Vanilla JS), making deployment to GitHub Pages straightforward:
+This project is 100% static (HTML5, CSS3, modern Vanilla JS) with zero build tools or external servers required:
 
-### Method 1: Push to GitHub Repository
-1. Initialize git and commit your files:
+### Option A: Using Git Command Line
+1. Open PowerShell or terminal in the project directory:
+   ```bash
+   cd c:\Users\nayan\NayanWork\JanathaSarees
+   ```
+2. Initialize git and commit:
    ```bash
    git init
    git add .
-   git commit -m "Refine Janatha Sarees storefront with authentic photography and no price tags"
+   git commit -m "Launch Janatha Sarees Soraba mobile-first storefront"
    ```
-2. Create a repository on GitHub (e.g. `janathasarees` or `<your-username>.github.io`).
-3. Add your remote and push:
+3. Connect your GitHub repository:
    ```bash
    git branch -M main
    git remote add origin https://github.com/<your-username>/<repo-name>.git
    git push -u origin main
    ```
 4. On GitHub, navigate to **Settings** → **Pages**.
-5. Under **Branch**, select `main` and root `/`, then click **Save**.
-6. Your website will be live in 60 seconds at `https://<your-username>.github.io/<repo-name>/`!
+5. Under **Build and deployment**:
+   - Source: **Deploy from a branch**
+   - Branch: **`main`**, Folder: **`/(root)`**
+   - Click **Save**.
+6. Your storefront will be live within 60 seconds at:  
+   `https://<your-username>.github.io/<repo-name>/`
 
-> **Note**: The `.nojekyll` file is included in the root directory to guarantee that all asset folders and styles are served directly without Jekyll filtering.
+> **Note**: The repository includes `.nojekyll` in the root folder, ensuring GitHub Pages serves all assets and CSS without Jekyll interference.
+
+---
+
+## 💻 Local Testing & Preview
+
+To run the site locally for testing:
+```bash
+# Using Python:
+python -m http.server 8088
+
+# Or using Node.js npx:
+npx serve .
+```
+Then open `http://localhost:8088` in your browser. Toggle Device Mode (`Ctrl+Shift+M`) to experience the mobile layout.
 
 ---
 
@@ -85,18 +145,18 @@ This project is built with zero external build dependencies (pure HTML5, CSS3, a
 ```
 JanathaSarees/
 ├── index.html              # Semantic HTML5 markup with JSON-LD schemas
-├── .nojekyll              # GitHub Pages Jekyll bypass flag
-├── README.md              # Documentation & deployment guide
+├── .nojekyll              # Bypasses GitHub Pages Jekyll processor
+├── README.md              # Complete project documentation
 ├── css/
-│   └── style.css          # Malnad Silk Heritage stylesheet & responsive grid
+│   └── style.css          # Malnad Silk Heritage stylesheet & mobile snap rails
 ├── js/
-│   └── app.js             # Bilingual switcher, occasion stylist & WhatsApp logic
-└── assets/                # Clean, authentic photography (zero AI slop/text)
-    ├── hero_saree.jpg           # Royal Kanjeevaram Silk bridal model
-    ├── mens_ethnic.jpg          # Groom in silk panche, shalya & kurta
-    ├── kids_festive.jpg         # Kids in festive pattu pavada & dhoti
+│   └── app.js             # Bilingual switcher, touch filter logic & WhatsApp link generator
+└── assets/                # Clean, authentic high-res photography
+    ├── hero_saree.jpg           # Royal Kanjeevaram bridal silk drape
+    ├── mens_ethnic.jpg          # Groom in traditional silk Panche, Shalya & Kurta
+    ├── kids_festive.jpg         # Kids festive Pattu Pavada and Kurta
     ├── nightwear_sportswear.jpg # Pure cotton nightwear & gym activewear
-    ├── saree_variety.jpg        # Banarasi, Soft Silk & Organza flatlay
+    ├── saree_variety.jpg        # Luxury Banarasi, Soft Silk & Organza flatlay
     ├── store_showroom.jpg       # Authentic Soraba showroom interior (clean casework & gaddi seating)
     ├── reel_saree.jpg           # Clean lilac organza drape portrait
     └── reel_men.jpg             # Clean olive festive kurta portrait
@@ -104,9 +164,11 @@ JanathaSarees/
 
 ---
 
-## 📞 Store Contact Details
+## 📞 Store Contact Details & Location
+
 - **Store Name**: Janatha Sarees (ಜನತಾ ಸ್ಯಾರೀಸ್)
-- **Location**: Near Old Bus Stand, Car Street (ರಥಬೀದಿ), Soraba, Shivamogga District, Karnataka – 577429
-- **Phone**: +91 94812 34567 / 08184 272233
-- **Hours**: 9:30 AM – 9:00 PM (Monday to Sunday)
-- **WhatsApp**: [Click to Chat](https://wa.me/919481234567)
+- **Address**: Near Old Bus Stand, Car Street (ರಥಬೀದಿ), Soraba, Shivamogga District, Karnataka – 577429
+- **Phone / Landline**: +91 94812 34567 / 08184 272233
+- **Opening Hours**: 9:30 AM – 9:00 PM (Monday to Sunday, All 7 Days)
+- **WhatsApp Chat**: [Click to Chat (+91 94812 34567)](https://wa.me/919481234567)
+- **Google Maps**: [View Showroom Location](https://maps.google.com/?q=Janatha+Sarees+Soraba+Karnataka)
