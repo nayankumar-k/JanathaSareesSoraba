@@ -93,36 +93,43 @@ Built upon the **Malnad Silk Heritage** design system generated via **Stitch MCP
 
 ---
 
-## 🚀 How to Host on GitHub Pages (Step-by-Step)
+## 🌐 Live Production URL
 
-This project is 100% static (HTML5, CSS3, modern Vanilla JS) with zero build tools or external servers required:
+The storefront is live on Vercel at:
+👉 **[https://janathasarees-soraba.vercel.app/](https://janathasarees-soraba.vercel.app/)**
 
-### Option A: Using Git Command Line
-1. Open PowerShell or terminal in the project directory:
+---
+
+## 🚀 Deployment to Vercel (Recommended)
+
+This project is optimized for **Vercel** with custom edge caching headers and security policies defined in [`vercel.json`](file:///c:/Users/nayan/NayanWork/JanathaSarees/vercel.json):
+
+### Method 1: Continuous Deployment via GitHub (Automated)
+1. Push your latest code to your GitHub repository:
    ```bash
-   cd c:\Users\nayan\NayanWork\JanathaSarees
-   ```
-2. Initialize git and commit:
-   ```bash
-   git init
    git add .
-   git commit -m "Launch Janatha Sarees Soraba mobile-first storefront"
+   git commit -m "Update canonical links and vercel configuration"
+   git push origin main
    ```
-3. Connect your GitHub repository:
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<repo-name>.git
-   git push -u origin main
-   ```
-4. On GitHub, navigate to **Settings** → **Pages**.
-5. Under **Build and deployment**:
-   - Source: **Deploy from a branch**
-   - Branch: **`main`**, Folder: **`/(root)`**
-   - Click **Save**.
-6. Your storefront will be live within 60 seconds at:  
-   `https://<your-username>.github.io/<repo-name>/`
+2. Vercel automatically detects the push and deploys the update in ~15 seconds to **`https://janathasarees-soraba.vercel.app/`**.
 
-> **Note**: The repository includes `.nojekyll` in the root folder, ensuring GitHub Pages serves all assets and CSS without Jekyll interference.
+### Method 2: Direct Deploy via Vercel CLI
+```bash
+# Deploy to preview
+npx vercel
+
+# Deploy directly to production
+npx vercel --prod
+```
+
+---
+
+## 📦 Alternative: GitHub Pages Deployment
+
+The repository also retains full compatibility with GitHub Pages (via [`.nojekyll`](file:///c:/Users/nayan/NayanWork/JanathaSarees/.nojekyll)):
+1. Push your branch to GitHub.
+2. Go to **Settings** → **Pages** → select `main` branch and `/ (root)`.
+3. Save to deploy.
 
 ---
 
