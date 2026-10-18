@@ -1,0 +1,1650 @@
+/* ==========================================================================
+   JANATHA SAREES - SORABA, KARNATAKA
+   Design System: Malnad Silk Heritage (Derived via Stitch MCP)
+   Tailored for Gen-Z Appeal & Universal Multi-Generational Accessibility
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Stitch Design Tokens - Malnad Silk Heritage */
+  --primary: #0C3B2E;           /* Royal Peacock Green */
+  --primary-dark: #07251D;
+  --primary-container: #154D3D;
+  --primary-light: #EBF4F1;
+  --primary-glow: rgba(12, 59, 46, 0.15);
+
+  --secondary: #E5A93C;         /* Marigold / Temple Zari Gold */
+  --secondary-dark: #C2841E;
+  --secondary-light: #FFF9ED;
+  --secondary-gold-gradient: linear-gradient(135deg, #FDE6B4 0%, #E5A93C 50%, #C2841E 100%);
+  --secondary-glow: rgba(229, 169, 60, 0.25);
+
+  --tertiary: #D62276;          /* Rani Pink / Festive Sindhoor */
+  --tertiary-dark: #A51458;
+  --tertiary-light: #FDF0F6;
+  --tertiary-glow: rgba(214, 34, 118, 0.2);
+
+  /* Backgrounds & Canvas */
+  --bg-canvas: #FDFBF7;         /* Raw Silk Ivory */
+  --bg-surface: #FFFFFF;
+  --bg-surface-warm: #F7F3E9;    /* Loom Spun Cream */
+  --bg-surface-elevated: #FFFFFF;
+  --bg-scrim: rgba(253, 251, 247, 0.88);
+
+  /* Borders & Dividers */
+  --border-light: #ECE5D8;
+  --border-medium: #DCD2C2;
+  --border-gold: rgba(229, 169, 60, 0.35);
+
+  /* Text & Contrast (WCAG AAA / AA compliant) */
+  --text-main: #181816;
+  --text-secondary: #4A463F;
+  --text-muted: #787268;
+  --text-on-dark: #FDFBF7;
+  --text-on-gold: #211703;
+
+  /* Utility & Feedback */
+  --whatsapp: #25D366;
+  --whatsapp-dark: #128C7E;
+  --star-gold: #FFB800;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-kannada: 'Noto Sans Kannada', 'Baloo 2', sans-serif;
+  --font-kannada-heading: 'Baloo 2', 'Noto Sans Kannada', sans-serif;
+
+  /* Shadows - Organic Peacock Depth */
+  --shadow-sm: 0 2px 8px -2px rgba(12, 59, 46, 0.06);
+  --shadow-md: 0 8px 24px -4px rgba(12, 59, 46, 0.08), 0 2px 6px -1px rgba(12, 59, 46, 0.04);
+  --shadow-lg: 0 16px 40px -6px rgba(12, 59, 46, 0.12), 0 4px 12px -2px rgba(12, 59, 46, 0.06);
+  --shadow-gold: 0 8px 24px -4px rgba(229, 169, 60, 0.35);
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Accessible Font Sizing Support */
+body.font-large {
+  font-size: 18px;
+}
+body.font-large h1 { font-size: 3.2rem; }
+body.font-large h2 { font-size: 2.4rem; }
+
+/* Kannada Language Active Styles */
+[lang="kn"], .lang-kn {
+  font-family: var(--font-kannada);
+  line-height: 1.75;
+}
+.lang-kn h1, .lang-kn h2, .lang-kn h3, .lang-kn .serif-heading {
+  font-family: var(--font-kannada-heading);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ==========================================================================
+   TOP ANNOUNCEMENT BAR & FESTIVE STRIP
+   ========================================================================== */
+.top-bar {
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(229, 169, 60, 0.3);
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.top-announcement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.festive-tag {
+  background: var(--secondary-gold-gradient);
+  color: var(--text-on-gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.top-meta-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.82rem;
+}
+
+.store-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #a3f7c4;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.accessibility-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-switch-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-on-dark);
+  border: 1px solid rgba(229, 169, 60, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: var(--transition-fast);
+}
+
+.lang-switch-btn:hover, .lang-switch-btn.active {
+  background: var(--secondary);
+  color: var(--text-on-gold);
+  border-color: var(--secondary);
+}
+
+.font-size-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   MAIN HEADER / NAVIGATION
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--bg-scrim);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  gap: 1.5rem;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-emblem {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border: 2px solid var(--secondary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  box-shadow: var(--shadow-gold);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.brand-emblem svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.brand-title .kannada-sub {
+  font-family: var(--font-kannada-heading);
+  font-size: 1.15rem;
+  color: var(--tertiary);
+  font-weight: 700;
+}
+
+.brand-tagline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-tagline span {
+  color: var(--secondary-dark);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0.4rem 0.2rem;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--secondary);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-smooth);
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--primary-dark);
+}
+
+.btn-primary:hover {
+  background: var(--primary-container);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-gold {
+  background: var(--secondary-gold-gradient);
+  color: var(--text-on-gold);
+  border: 1px solid rgba(194, 132, 30, 0.6);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary-light);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  border: 1px solid #1fb755;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+}
+
+.btn-icon-only {
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-warm);
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   HERO SECTION - MALNAD SILK EDITORIAL
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  padding: 3rem 0 4rem;
+  background: radial-gradient(circle at 80% 20%, rgba(229, 169, 60, 0.12), transparent 50%),
+              radial-gradient(circle at 10% 80%, rgba(12, 59, 46, 0.08), transparent 45%),
+              var(--bg-canvas);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-gold);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+}
+
+.hero-pill-badge .badge-icon {
+  color: var(--secondary-dark);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-title .gold-accent {
+  background: var(--secondary-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.hero-title .kannada-hero {
+  display: block;
+  font-family: var(--font-kannada-heading);
+  font-size: 2.1rem;
+  color: var(--tertiary);
+  margin-top: 0.25rem;
+  -webkit-text-fill-color: var(--tertiary);
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px dashed var(--border-medium);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.highlight-item svg {
+  color: var(--secondary-dark);
+  flex-shrink: 0;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hero-visual-card {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid #FFFFFF;
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-image-frame:hover img {
+  transform: scale(1.03);
+}
+
+.hero-floating-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.badge-top-left {
+  top: 1.5rem;
+  left: -1rem;
+  animation: floatSlow 4s ease-in-out infinite alternate;
+}
+
+.badge-bottom-right {
+  bottom: 1.5rem;
+  right: -1rem;
+  animation: floatSlow 5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.badge-icon-box {
+  width: 38px;
+  height: 38px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-text-primary {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.badge-text-secondary {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   OCCASION & BUDGET STYLIST - INTERACTIVE GEN-Z ENGINE
+   ========================================================================== */
+.stylist-section {
+  padding: 3.5rem 0;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--tertiary);
+  background: var(--tertiary-light);
+  padding: 0.25rem 0.8rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+.stylist-widget {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.stylist-filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-group-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip-btn {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1.5px solid var(--border-medium);
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all var(--transition-fast);
+}
+
+.chip-btn:hover {
+  border-color: var(--secondary);
+  background: var(--secondary-light);
+}
+
+.chip-btn.active {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(12, 59, 46, 0.25);
+}
+
+.chip-btn.active .chip-badge {
+  background: var(--secondary);
+  color: var(--text-on-gold);
+}
+
+.chip-badge {
+  font-size: 0.72rem;
+  background: var(--bg-surface-warm);
+  color: var(--text-secondary);
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-pill);
+}
+
+.stylist-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--secondary);
+}
+
+.product-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #eee;
+}
+
+.product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-thumb img {
+  transform: scale(1.05);
+}
+
+.product-tag-floating {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(12, 59, 46, 0.88);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  backdrop-filter: blur(4px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.product-badge-pink {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: var(--tertiary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+}
+
+.product-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-cat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--secondary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+.product-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.product-meta-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.product-price-range {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.product-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.product-actions .btn {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   BENTO GRID - COMPREHENSIVE STORE COLLECTION SHOWCASE
+   (Sarees, Men's, Kids, Occasions, Nightwear & Sportswear)
+   ========================================================================== */
+.bento-section {
+  padding: 4.5rem 0;
+  background: var(--bg-canvas);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.bento-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-smooth);
+}
+
+.bento-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-gold);
+}
+
+/* Bento Column Spanning */
+.bento-item-sarees {
+  grid-column: span 7;
+}
+
+.bento-item-mens {
+  grid-column: span 5;
+}
+
+.bento-item-kids {
+  grid-column: span 4;
+}
+
+.bento-item-comfort {
+  grid-column: span 4;
+}
+
+.bento-item-occasions {
+  grid-column: span 4;
+}
+
+.bento-item-full {
+  grid-column: span 12;
+}
+
+.bento-content-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.bento-visual {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 280px;
+}
+
+.bento-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.bento-item:hover .bento-visual img {
+  transform: scale(1.04);
+}
+
+.bento-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bento-badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.badge-peacock {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.badge-gold {
+  background: var(--secondary-light);
+  color: var(--secondary-dark);
+}
+
+.badge-rani {
+  background: var(--tertiary-light);
+  color: var(--tertiary);
+}
+
+.bento-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.bento-title .kannada-mini {
+  display: block;
+  font-family: var(--font-kannada-heading);
+  font-size: 1.2rem;
+  color: var(--tertiary);
+}
+
+.bento-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.bento-tag {
+  background: var(--bg-surface-warm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-light);
+}
+
+.bento-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 0.9rem;
+  transition: gap var(--transition-fast);
+}
+
+.bento-link:hover {
+  gap: 0.7rem;
+  color: var(--secondary-dark);
+}
+
+/* Vertical Bento Cards (Kids, Loungewear, Occasions) */
+.bento-card-vertical {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bento-card-vertical .bento-visual {
+  height: 220px;
+}
+
+.bento-card-vertical .bento-details {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   GEN-Z SOCIAL LOOKBOOK & REELS ("JANATHA DROPS")
+   ========================================================================== */
+.reels-section {
+  padding: 4.5rem 0;
+  background: linear-gradient(180deg, var(--bg-surface-warm) 0%, var(--bg-canvas) 100%);
+  position: relative;
+}
+
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.reel-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 9/16;
+  background: #000;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border-light);
+  cursor: pointer;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.reel-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary);
+}
+
+.reel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+}
+
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  color: #fff;
+}
+
+.reel-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reel-genz-badge {
+  background: rgba(214, 34, 118, 0.85);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(4px);
+  text-transform: uppercase;
+}
+
+.reel-views {
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(0,0,0,0.5);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.reel-bottom-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reel-tagline {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.reel-price-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.reel-action-btn {
+  background: var(--whatsapp);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: var(--transition-fast);
+}
+
+.reel-action-btn:hover {
+  background: #20ba5a;
+}
+
+/* ==========================================================================
+   OCCASIONS DIRECTORY - MARRIAGE, GRUHA PRAVESHA, FESTIVALS
+   ========================================================================== */
+.occasions-matrix {
+  padding: 4.5rem 0;
+  background: var(--bg-surface);
+}
+
+.occasions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.occasion-card {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.occasion-card:hover {
+  background: #fff;
+  border-color: var(--secondary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.occasion-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-gold);
+}
+
+.occasion-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.occasion-kannada {
+  font-family: var(--font-kannada-heading);
+  font-size: 1.05rem;
+  color: var(--tertiary);
+  margin-bottom: 0.75rem;
+}
+
+.occasion-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.occasion-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.occasion-checklist li svg {
+  color: var(--secondary-dark);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   STORE VISIT & GEO LOCAL PRIDE (SORABA, MALNAD)
+   ========================================================================== */
+.store-visit-section {
+  padding: 5rem 0;
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.store-visit-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.store-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.store-info-box .section-tag {
+  background: rgba(229, 169, 60, 0.2);
+  color: var(--secondary);
+  border: 1px solid rgba(229, 169, 60, 0.4);
+}
+
+.store-info-box .section-title {
+  color: #fff;
+}
+
+.store-info-box .section-subtitle {
+  color: rgba(253, 251, 247, 0.8);
+}
+
+.store-facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.fact-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(229, 169, 60, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+}
+
+.fact-title {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.fact-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+}
+
+.fact-sub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.25rem;
+}
+
+.showroom-photo-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid rgba(229, 169, 60, 0.4);
+}
+
+.showroom-photo-frame img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.showroom-caption {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  background: linear-gradient(0deg, rgba(7, 37, 29, 0.95) 0%, rgba(7, 37, 29, 0) 100%);
+  padding: 1.5rem;
+  color: #fff;
+}
+
+/* ==========================================================================
+   AEO & FAQ SECTION (Natural Language Answers for AI Search)
+   ========================================================================== */
+.faq-section {
+  padding: 4.5rem 0;
+  background: var(--bg-surface-warm);
+}
+
+.faq-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.faq-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faq-item.active {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: left;
+  gap: 1rem;
+}
+
+.faq-toggle-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-toggle-icon {
+  transform: rotate(180deg);
+  background: var(--secondary);
+  color: var(--text-on-gold);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 400px;
+  padding: 0 1.5rem 1.25rem;
+}
+
+/* ==========================================================================
+   FOOTER - MALNAD BRAND ARCHITECTURE
+   ========================================================================== */
+.site-footer {
+  background: #081D17;
+  color: rgba(253, 251, 247, 0.8);
+  padding: 4.5rem 0 2rem;
+  border-top: 2px solid var(--secondary);
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand-title span {
+  font-family: var(--font-kannada-heading);
+  color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.footer-heading {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+}
+
+/* ==========================================================================
+   STICKY MOBILE BOTTOM DOCK (EASY ACCESS ACROSS AGES)
+   ========================================================================== */
+.mobile-bottom-dock {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(12, 59, 46, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(229, 169, 60, 0.4);
+  padding: 0.6rem 1rem;
+  z-index: 999;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dock-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-xs);
+  transition: var(--transition-fast);
+}
+
+.dock-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dock-whatsapp-btn {
+  background: var(--whatsapp);
+  color: #fff;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADAPTATIONS (MOBILE & TABLET)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-highlights {
+    justify-content: center;
+  }
+  .hero-ctas {
+    justify-content: center;
+  }
+  .hero-image-frame img {
+    height: 400px;
+  }
+  .badge-top-left {
+    left: 0.5rem;
+  }
+  .badge-bottom-right {
+    right: 0.5rem;
+  }
+  .bento-item-sarees, .bento-item-mens, .bento-item-kids, .bento-item-comfort, .bento-item-occasions {
+    grid-column: span 12;
+  }
+  .store-visit-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .hero-title .kannada-hero {
+    font-size: 1.6rem;
+  }
+  .section-title {
+    font-size: 1.85rem;
+  }
+  .main-nav {
+    display: none; /* toggleable on mobile */
+  }
+  .main-nav.mobile-active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--border-medium);
+  }
+  .mobile-menu-toggle {
+    display: block;
+  }
+  .header-actions .btn-whatsapp {
+    display: none;
+  }
+  .bento-content-split {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .mobile-bottom-dock {
+    display: block;
+  }
+  body {
+    padding-bottom: 70px; /* offset for sticky dock */
+  }
+}
