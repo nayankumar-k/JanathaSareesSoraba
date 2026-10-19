@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   
   <!-- Primary Meta Tags -->
   <title>Janatha Sarees Soraba | Trending Sarees, Men's, Kids & Family Fashion</title>
@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://janathasarees-soraba.vercel.app/assets/hero_saree.jpg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261019_v3">
 
   <!-- ==========================================================================
        STRUCTURED DATA (JSON-LD) - AEO & LOCAL GEO OPTIMIZATION
@@ -126,19 +126,21 @@
 <body>
 
   <!-- ==========================================================================
-       APP HEADER & SEARCH (MYNTRA & AJIO STYLE)
+       APP HEADER & SEARCH (BILINGUAL, GLASS & GOLD FINISH, ULTRA-FLEXIBLE)
        ========================================================================== -->
   <header class="app-header" role="banner">
-    <!-- Top Announcement & Switcher -->
+    <!-- Top Royal Silk Announcement & Switcher -->
     <div class="header-top-bar">
       <div class="container top-bar-flex">
         <div class="top-bar-marquee">
-          <span class="top-bar-badge">Festive 2026</span>
-          <span data-i18n="announcement">✨ Wedding, Gruha Pravesha & Festive Collections Now in Store in Soraba!</span>
+          <span class="top-bar-badge" data-i18n="festiveBadge">Festive 2026</span>
+          <span class="top-bar-text" data-i18n="announcement">✨ Wedding, Gruha Pravesha & Festive Collections Now in Store in Soraba!</span>
         </div>
-        <div class="header-top-actions">
-          <button class="lang-pill-btn active" data-lang-btn="en" aria-label="Switch to English">EN</button>
-          <button class="lang-pill-btn" data-lang-btn="kn" aria-label="Switch to Kannada">ಕನ್ನಡ</button>
+        <div class="header-top-actions desktop-top-actions">
+          <div class="lang-switch-group" role="group" aria-label="Language Selector">
+            <button class="lang-pill-btn active" data-lang-btn="en" aria-label="Switch to English">EN</button>
+            <button class="lang-pill-btn" data-lang-btn="kn" aria-label="Switch to Kannada">ಕನ್ನಡ</button>
+          </div>
         </div>
       </div>
     </div>
@@ -150,67 +152,78 @@
         <a href="#home" class="brand-block" aria-label="Janatha Sarees Soraba">
           <div class="brand-logo-icon">JS</div>
           <div class="brand-title-wrap">
-            <div class="brand-name">JANATHA <span>SAREES</span></div>
-            <div class="brand-location">SORABA • SHIVAMOGGA</div>
+            <div class="brand-name">JANATHA <span class="brand-sarees">SAREES</span></div>
+            <div class="brand-location" data-i18n="brandLocation">SORABA • SHIVAMOGGA</div>
           </div>
         </a>
 
-        <!-- Sticky Search Input (Desktop) -->
-        <div class="search-container">
+        <!-- Sticky Search Input (Desktop Only) -->
+        <div class="search-container desktop-only-search">
           <div class="search-input-wrap">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="globalSearchInput" class="search-input" placeholder="Search for Sarees, Men's Kurtas, Kids Wear, Nightwear..." aria-label="Search Catalog">
+            <input type="text" id="globalSearchInput" class="search-input" placeholder="Search for Sarees, Men's Kurtas, Kids Wear, Nightwear..." data-i18n-placeholder="searchPlaceholder" aria-label="Search Catalog">
           </div>
         </div>
 
         <!-- Header Actions -->
         <div class="header-user-actions">
+          <!-- Mobile Fast Language Switcher (Always accessible on mobile) -->
+          <div class="mobile-lang-switch">
+            <button class="lang-pill-btn active" data-lang-btn="en" aria-label="Switch to English">EN</button>
+            <button class="lang-pill-btn" data-lang-btn="kn" aria-label="Switch to Kannada">ಕನ್ನಡ</button>
+          </div>
+
+          <!-- Wishlist Button -->
           <button class="action-icon-btn" id="headerWishlistBtn" aria-label="My Wishlist">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            <span>Wishlist</span>
-            <span class="icon-badge" id="wishlistCountBadge">0</span>
+            <div class="action-icon-wrap">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              <span class="icon-badge" id="wishlistCountBadge">0</span>
+            </div>
+            <span class="action-label" data-i18n="wishlist">Wishlist</span>
           </button>
 
-          <a href="https://maps.google.com/?q=Janatha+Sarees+Soraba+Karnataka" target="_blank" rel="noopener noreferrer" class="action-icon-btn" aria-label="Directions in Soraba">
+          <!-- Desktop Showroom Button -->
+          <a href="https://maps.google.com/?q=Janatha+Sarees+Soraba+Karnataka" target="_blank" rel="noopener noreferrer" class="action-icon-btn desktop-only-action" aria-label="Directions in Soraba">
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span>Showroom</span>
+            <span class="action-label" data-i18n="showroom">Showroom</span>
           </a>
 
-          <a href="https://wa.me/919481234567?text=Namaskara%20Janatha%20Sarees!%20I%20am%20visiting%20your%20trending%20online%20store." target="_blank" rel="noopener noreferrer" class="whatsapp-pill-btn" aria-label="WhatsApp Store Chat">
+          <!-- Desktop WhatsApp Button -->
+          <a href="https://wa.me/919481234567?text=Namaskara%20Janatha%20Sarees!%20I%20am%20visiting%20your%20trending%20online%20store." target="_blank" rel="noopener noreferrer" class="whatsapp-pill-btn desktop-only-action" aria-label="WhatsApp Store Chat">
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-            <span>WhatsApp</span>
+            <span data-i18n="whatsapp">WhatsApp</span>
           </a>
         </div>
+      </div>
+    </div>
+
+    <!-- Integrated Mobile Search Bar (Directly inside Header for smooth sticky experience) -->
+    <div class="mobile-search-bar">
+      <div class="search-input-wrap mobile-search-wrap">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="mobileSearchInput" class="search-input" placeholder="Search for Sarees, Men's Kurtas, Kids Wear, Nightwear..." data-i18n-placeholder="searchPlaceholder" aria-label="Mobile Search">
       </div>
     </div>
 
     <!-- Category Nav Bar (Desktop) -->
     <nav class="desktop-categories-nav" aria-label="E-commerce Categories">
       <div class="container categories-nav-flex">
-        <a href="#catalog" class="cat-nav-link active" data-category="all">All Trends</a>
-        <a href="#catalog" class="cat-nav-link" data-category="sarees">Sarees & Silks</a>
-        <a href="#catalog" class="cat-nav-link" data-category="men">Men's Ethnic</a>
-        <a href="#catalog" class="cat-nav-link" data-category="kids">Kids Festive</a>
-        <a href="#catalog" class="cat-nav-link" data-category="occasions">Wedding & Occasions</a>
-        <a href="#catalog" class="cat-nav-link" data-category="comfort">Nightwear & Sports</a>
-        <a href="#lookbook" class="cat-nav-link">Ajio Lookbook</a>
-        <a href="#store" class="cat-nav-link">Soraba Showroom</a>
+        <a href="#catalog" class="cat-nav-link active" data-category="all" data-i18n="catAll">All Trends</a>
+        <a href="#catalog" class="cat-nav-link" data-category="sarees" data-i18n="catSarees">Sarees & Silks</a>
+        <a href="#catalog" class="cat-nav-link" data-category="men" data-i18n="catMen">Men's Ethnic</a>
+        <a href="#catalog" class="cat-nav-link" data-category="kids" data-i18n="catKids">Kids Festive</a>
+        <a href="#catalog" class="cat-nav-link" data-category="occasions" data-i18n="catOccasions">Wedding & Occasions</a>
+        <a href="#catalog" class="cat-nav-link" data-category="comfort" data-i18n="catComfort">Nightwear & Sports</a>
+        <a href="#lookbook" class="cat-nav-link" data-i18n="catLookbook">Ajio Lookbook</a>
+        <a href="#store" class="cat-nav-link" data-i18n="catShowroom">Soraba Showroom</a>
       </div>
     </nav>
   </header>
 
-  <!-- Mobile Search Bar (Direct top access) -->
-  <div class="mobile-search-bar">
-    <div class="search-input-wrap">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="mobileSearchInput" class="search-input" placeholder="Search Sarees, Kurtas, Kids wear..." aria-label="Mobile Search">
-    </div>
-  </div>
-
   <main id="home">
 
     <!-- ==========================================================================
-         INSTAGRAM / MYNTRA STYLE STORIES RAIL
+         INSTAGRAM / MYNTRA STYLE STORIES RAIL (WITH GOLDEN SHIMMER RINGS)
          ========================================================================== -->
     <section class="stories-section" aria-label="Quick Story Highlights">
       <div class="container">
@@ -219,80 +232,80 @@
             <div class="story-ring">
               <img src="assets/hero_saree.jpg" alt="Sarees" class="story-avatar">
             </div>
-            <span class="story-title">Sarees</span>
+            <span class="story-title" data-i18n="storySarees">Sarees</span>
           </div>
 
           <div class="story-item" data-category="men">
             <div class="story-ring">
               <img src="assets/mens_ethnic.jpg" alt="Men's Ethnic" class="story-avatar">
             </div>
-            <span class="story-title">Men's Wear</span>
+            <span class="story-title" data-i18n="storyMen">Men's Wear</span>
           </div>
 
           <div class="story-item" data-category="kids">
             <div class="story-ring">
               <img src="assets/kids_festive.jpg" alt="Kids Festive" class="story-avatar">
             </div>
-            <span class="story-title">Kids Wear</span>
+            <span class="story-title" data-i18n="storyKids">Kids Wear</span>
           </div>
 
           <div class="story-item" data-category="occasions">
             <div class="story-ring">
               <img src="assets/saree_variety.jpg" alt="Occasion Combos" class="story-avatar">
             </div>
-            <span class="story-title">Muhurtham</span>
+            <span class="story-title" data-i18n="storyMuhurtham">Muhurtham</span>
           </div>
 
           <div class="story-item" data-category="comfort">
             <div class="story-ring">
               <img src="assets/nightwear_sportswear.jpg" alt="Nightwear & Sports" class="story-avatar">
             </div>
-            <span class="story-title">Comfort</span>
+            <span class="story-title" data-i18n="storyComfort">Comfort</span>
           </div>
 
           <div class="story-item" onclick="document.getElementById('lookbook').scrollIntoView({behavior: 'smooth'})">
             <div class="story-ring">
               <img src="assets/reel_saree.jpg" alt="Lookbook Trends" class="story-avatar">
             </div>
-            <span class="story-title">Trends</span>
+            <span class="story-title" data-i18n="storyTrends">Trends</span>
           </div>
 
           <div class="story-item" onclick="document.getElementById('store').scrollIntoView({behavior: 'smooth'})">
             <div class="story-ring">
               <img src="assets/store_showroom.jpg" alt="Soraba Showroom" class="story-avatar">
             </div>
-            <span class="story-title">Showroom</span>
+            <span class="story-title" data-i18n="storyShowroom">Showroom</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         HERO BANNER CAROUSEL (MYNTRA & AJIO STYLE)
+         HERO BANNER (ROYAL SILK, GLASSMORPHIC FINISH & GOLDEN ACCENTS)
          ========================================================================== -->
     <section class="hero-banner-section">
       <div class="container">
         <div class="hero-banner-card">
           <div class="hero-banner-content">
-            <span class="hero-banner-badge">🌸 Grand Festive Collection 2026</span>
-            <h1 class="hero-banner-heading">
-              Pure Silks & Modern Drapes. <span>Affordable For Every Family.</span>
-              <span class="hero-banner-kannada">ಪ್ರತಿಯೊಂದು ಶುಭ ಸಮಾರಂಭಕ್ಕೂ ಜನತಾ ಸ್ಯಾರೀಸ್</span>
+            <span class="hero-banner-badge" data-i18n="heroBadge">🌸 Grand Festive Collection 2026</span>
+            <h1 class="hero-banner-heading" data-i18n="heroHeading">
+              Pure Silks & Modern Drapes. <span class="gold-gradient-text">Affordable For Every Family.</span>
             </h1>
+            <div class="hero-banner-kannada" data-i18n="heroKannadaSubtitle">ಪ್ರತಿಯೊಂದು ಶುಭ ಸಮಾರಂಭಕ್ಕೂ ಜನತಾ ಸ್ಯಾರೀಸ್</div>
             <p class="hero-banner-sub" data-i18n="heroDesc">
               From Royal Wedding Muhurthams and Gruha Pravesha to vibrant festivals and everyday comfort — discover Karnataka's finest Sarees, Men's wear, Kids' festive sets, Nightwear, and Sportswear at direct weaver prices in Soraba.
             </p>
             <div class="hero-banner-badges">
-              <span class="h-tag">✦ 100% Genuine Weaves</span>
-              <span class="h-tag">✦ Direct Weaver Value</span>
-              <span class="h-tag">✦ Complete Family Store</span>
-              <span class="h-tag">✦ Live WhatsApp Video Calls</span>
+              <span class="h-tag" data-i18n="heroTag1">✦ 100% Genuine Weaves</span>
+              <span class="h-tag" data-i18n="heroTag2">✦ Direct Weaver Value</span>
+              <span class="h-tag" data-i18n="heroTag3">✦ Complete Family Store</span>
+              <span class="h-tag" data-i18n="heroTag4">✦ Saree Border & Pallu HD Photos</span>
             </div>
             <div class="hero-banner-ctas">
-              <a href="#catalog" class="btn-myntra-primary" data-i18n="ctaExplore">Explore Collections</a>
-              <a href="https://wa.me/919481234567?text=Namaskara%20Janatha%20Sarees!%20I%20am%20exploring%20your%20trending%20online%20collection." target="_blank" rel="noopener noreferrer" class="btn-myntra-whatsapp">
+              <a href="#catalog" class="btn-royal-primary" data-i18n="ctaExplore">Explore Collections</a>
+              <a href="https://wa.me/919481234567?text=Namaskara%20Janatha%20Sarees!%20I%20am%20exploring%20your%20trending%20online%20collection." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                <span>Instant WhatsApp Inquiry</span>
+                <span data-i18n="ctaWhatsApp">Instant WhatsApp Inquiry</span>
               </a>
             </div>
           </div>
@@ -304,7 +317,7 @@
     </section>
 
     <!-- ==========================================================================
-         TRUST HIGHLIGHTS STRIP
+         TRUST HIGHLIGHTS STRIP (AUTHENTIC VALUE & LOCAL HERITAGE)
          ========================================================================== -->
     <section class="trust-strip" aria-label="Store Guarantees">
       <div class="container">
@@ -312,29 +325,29 @@
           <div class="trust-card">
             <div class="trust-icon-wrap">🥻</div>
             <div class="trust-text-block">
-              <span class="trust-title">10,000+ Saree Varieties</span>
-              <span class="trust-sub">Kanjeevaram, Banarasi, Cotton, Organza</span>
+              <span class="trust-title" data-i18n="trust1Title">10,000+ Saree Varieties</span>
+              <span class="trust-sub" data-i18n="trust1Sub">Kanjeevaram, Banarasi, Cotton, Organza</span>
             </div>
           </div>
           <div class="trust-card">
             <div class="trust-icon-wrap">✨</div>
             <div class="trust-text-block">
-              <span class="trust-title">Direct Weaver Pricing</span>
-              <span class="trust-sub">Zero middleman markup, honest value</span>
+              <span class="trust-title" data-i18n="trust2Title">Direct Weaver Pricing</span>
+              <span class="trust-sub" data-i18n="trust2Sub">Zero middleman markup, honest value</span>
             </div>
           </div>
           <div class="trust-card">
-            <div class="trust-icon-wrap">📱</div>
+            <div class="trust-icon-wrap">📸</div>
             <div class="trust-text-block">
-              <span class="trust-title">Live Video Selection</span>
-              <span class="trust-sub">View drapes & colors live on WhatsApp</span>
+              <span class="trust-title" data-i18n="trust3Title">HD Saree Photos</span>
+              <span class="trust-sub" data-i18n="trust3Sub">Close-up border & pallu details on WhatsApp</span>
             </div>
           </div>
           <div class="trust-card">
-            <div class="trust-icon-wrap">📍</div>
+            <div class="trust-icon-wrap">🏛️</div>
             <div class="trust-text-block">
-              <span class="trust-title">Soraba Heritage Store</span>
-              <span class="trust-sub">Car Street showroom open all 7 days</span>
+              <span class="trust-title" data-i18n="trust4Title">Soraba Heritage Store</span>
+              <span class="trust-sub" data-i18n="trust4Sub">Car Street showroom open all 7 days</span>
             </div>
           </div>
         </div>
@@ -342,15 +355,15 @@
     </section>
 
     <!-- ==========================================================================
-         SHOP BY CATEGORY (MYNTRA "TOP PICKS")
+         SHOP BY CATEGORY (GLASS TILES WITH GOLD FINISH)
          ========================================================================== -->
     <section class="categories-showcase-section" id="categories">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-main-heading">
+          <h2 class="section-main-heading" data-i18n="shopByCatHeading">
             Shop By Category <span>ವಿಭಾಗವಾರು ಉಡುಪುಗಳು</span>
           </h2>
-          <a href="#catalog" class="section-link">View All →</a>
+          <a href="#catalog" class="section-link" data-i18n="viewAll">View All →</a>
         </div>
 
         <div class="category-tiles-grid">
@@ -360,9 +373,8 @@
               <img src="assets/saree_variety.jpg" alt="Silk Sarees" loading="lazy">
             </div>
             <div class="cat-tile-meta">
-              <div class="cat-tile-name">Silk & Bridal Sarees</div>
-              <div class="cat-tile-kannada">ರೇಷ್ಮೆ ಸ್ಯಾರೀಸ್</div>
-              <div class="cat-tile-offer">Direct Weaver Value</div>
+              <div class="cat-tile-name" data-i18n="catTile1Name">Silk & Bridal Sarees</div>
+              <div class="cat-tile-offer" data-i18n="catTile1Offer">Direct Weaver Value</div>
             </div>
           </div>
 
@@ -372,9 +384,8 @@
               <img src="assets/mens_ethnic.jpg" alt="Men's Ethnic" loading="lazy">
             </div>
             <div class="cat-tile-meta">
-              <div class="cat-tile-name">Men's Panche & Kurtas</div>
-              <div class="cat-tile-kannada">ಪುರುಷರ ಉಡುಪು</div>
-              <div class="cat-tile-offer">Groom & Festive Sets</div>
+              <div class="cat-tile-name" data-i18n="catTile2Name">Men's Panche & Kurtas</div>
+              <div class="cat-tile-offer" data-i18n="catTile2Offer">Groom & Festive Sets</div>
             </div>
           </div>
 
@@ -384,9 +395,8 @@
               <img src="assets/kids_festive.jpg" alt="Kids Festive" loading="lazy">
             </div>
             <div class="cat-tile-meta">
-              <div class="cat-tile-name">Kids Festive Sets</div>
-              <div class="cat-tile-kannada">ಮಕ್ಕಳ ಪಟ್ಟು ಪಾವಡೆ</div>
-              <div class="cat-tile-offer">Skin-friendly Silks</div>
+              <div class="cat-tile-name" data-i18n="catTile3Name">Kids Festive Sets</div>
+              <div class="cat-tile-offer" data-i18n="catTile3Offer">Skin-friendly Silks</div>
             </div>
           </div>
 
@@ -396,9 +406,8 @@
               <img src="assets/hero_saree.jpg" alt="Occasion Combos" loading="lazy">
             </div>
             <div class="cat-tile-meta">
-              <div class="cat-tile-name">Wedding Muhurtham</div>
-              <div class="cat-tile-kannada">ಮದುವೆ & ಗೃಹಪ್ರವೇಶ</div>
-              <div class="cat-tile-offer">Bulk Family Combos</div>
+              <div class="cat-tile-name" data-i18n="catTile4Name">Wedding Muhurtham</div>
+              <div class="cat-tile-offer" data-i18n="catTile4Offer">Bulk Family Combos</div>
             </div>
           </div>
 
@@ -408,9 +417,8 @@
               <img src="assets/nightwear_sportswear.jpg" alt="Nightwear & Loungewear" loading="lazy">
             </div>
             <div class="cat-tile-meta">
-              <div class="cat-tile-name">Cotton Nightwear</div>
-              <div class="cat-tile-kannada">ಕಾಟನ್ ನೈಟ್‌ವೇರ್</div>
-              <div class="cat-tile-offer">100% Pure Soft Cotton</div>
+              <div class="cat-tile-name" data-i18n="catTile5Name">Cotton Nightwear</div>
+              <div class="cat-tile-offer" data-i18n="catTile5Offer">100% Pure Soft Cotton</div>
             </div>
           </div>
 
@@ -420,9 +428,8 @@
               <img src="assets/nightwear_sportswear.jpg" alt="Sportswear" loading="lazy">
             </div>
             <div class="cat-tile-meta">
-              <div class="cat-tile-name">Active Sportswear</div>
-              <div class="cat-tile-kannada">ಸ್ಪೋರ್ಟ್ಸ್ & ಟ್ರ್ಯಾಕ್ಸ್</div>
-              <div class="cat-tile-offer">Gym & Daily Active</div>
+              <div class="cat-tile-name" data-i18n="catTile6Name">Active Sportswear</div>
+              <div class="cat-tile-offer" data-i18n="catTile6Offer">Gym & Daily Active</div>
             </div>
           </div>
         </div>
@@ -430,25 +437,25 @@
     </section>
 
     <!-- ==========================================================================
-         TRENDING CATALOGUE & INSTANT FILTERS (MYNTRA / AJIO 3:4 CARDS)
+         TRENDING CATALOGUE & INSTANT FILTERS (FROSTED GLASS & GOLD TRIM)
          ========================================================================== -->
     <section class="catalog-section" id="catalog">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-main-heading">
+          <h2 class="section-main-heading" data-i18n="catalogHeading">
             Trending Looks & Catalog <span>ನವೀನ ಸಂಗ್ರಹಗಳು</span>
           </h2>
-          <span id="activeFilterBadge" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-pink);">Showing All</span>
+          <span id="activeFilterBadge" class="active-filter-badge" data-i18n="showingAll">Showing All</span>
         </div>
 
         <!-- Filter Pills Bar -->
         <div class="filter-pills-bar" role="tablist">
-          <button class="filter-pill active" data-filter="all">All Items <span class="pill-count" id="countAll">9</span></button>
-          <button class="filter-pill" data-filter="sarees">Sarees <span class="pill-count" id="countSarees">4</span></button>
-          <button class="filter-pill" data-filter="men">Men's Wear <span class="pill-count" id="countMen">2</span></button>
-          <button class="filter-pill" data-filter="kids">Kids Wear <span class="pill-count" id="countKids">1</span></button>
-          <button class="filter-pill" data-filter="occasions">Occasions <span class="pill-count" id="countOccasions">2</span></button>
-          <button class="filter-pill" data-filter="comfort">Night & Sports <span class="pill-count" id="countComfort">1</span></button>
+          <button class="filter-pill active" data-filter="all"><span data-i18n="pillAll">All Items</span> <span class="pill-count" id="countAll">9</span></button>
+          <button class="filter-pill" data-filter="sarees"><span data-i18n="pillSarees">Sarees</span> <span class="pill-count" id="countSarees">4</span></button>
+          <button class="filter-pill" data-filter="men"><span data-i18n="pillMen">Men's Wear</span> <span class="pill-count" id="countMen">2</span></button>
+          <button class="filter-pill" data-filter="kids"><span data-i18n="pillKids">Kids Wear</span> <span class="pill-count" id="countKids">1</span></button>
+          <button class="filter-pill" data-filter="occasions"><span data-i18n="pillOccasions">Occasions</span> <span class="pill-count" id="countOccasions">2</span></button>
+          <button class="filter-pill" data-filter="comfort"><span data-i18n="pillComfort">Night & Sports</span> <span class="pill-count" id="countComfort">1</span></button>
         </div>
 
         <!-- Dynamic 3:4 Product Grid -->
@@ -459,15 +466,15 @@
     </section>
 
     <!-- ==========================================================================
-         AJIO TRENDS LOOKBOOK (MYNTRA STUDIO REELS)
+         AJIO TRENDS LOOKBOOK (ROYAL EDITORIAL DRAPES)
          ========================================================================== -->
     <section class="lookbook-section" id="lookbook">
       <div class="container">
-        <div class="section-title-wrap" style="color: #fff;">
-          <h2 class="section-main-heading" style="color: #fff;">
-            Ajio & Myntra Trends Lookbook <span style="color: var(--accent-gold);">ಸ್ಟೈಲ್ ಇನ್ಸ್‌ಪಿರೇಷನ್</span>
+        <div class="section-title-wrap">
+          <h2 class="section-main-heading light-heading" data-i18n="lookbookHeading">
+            Ajio & Myntra Trends Lookbook <span class="gold-accent-text">ಸ್ಟೈಲ್ ಇನ್ಸ್‌ಪಿರೇಷನ್</span>
           </h2>
-          <span style="font-size: 0.82rem; color: #CBD5E1;">Curated Editorial Drapes</span>
+          <span class="lookbook-subtitle" data-i18n="lookbookSub">Curated Editorial Drapes</span>
         </div>
 
         <div class="lookbook-grid">
@@ -475,12 +482,12 @@
           <div class="lookbook-reel-card">
             <img src="assets/reel_saree.jpg" alt="Delicate Lilac Organza Saree" loading="lazy">
             <div class="lookbook-overlay">
-              <span class="lookbook-top-badge">Trending Pastel</span>
+              <span class="lookbook-top-badge" data-i18n="look1Badge">Trending Pastel</span>
               <div>
-                <h3 class="lookbook-title">Lilac Organza & Delicate Scallop Drape</h3>
-                <p class="lookbook-sub">Airy pastel weave with floral embroidery, loved for receptions & modern rituals.</p>
-                <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20the%20Lilac%20Organza%20Saree%20from%20your%20lookbook." target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
-                  <span>Inquire Look on WhatsApp</span>
+                <h3 class="lookbook-title" data-i18n="look1Title">Lilac Organza & Delicate Scallop Drape</h3>
+                <p class="lookbook-sub" data-i18n="look1Sub">Airy pastel weave with floral embroidery, loved for receptions & modern rituals.</p>
+                <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20the%20Lilac%20Organza%20Saree%20from%20your%20lookbook." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
+                  <span data-i18n="inquireLook">Inquire Look on WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -490,12 +497,12 @@
           <div class="lookbook-reel-card">
             <img src="assets/reel_men.jpg" alt="Men's Festive Kurta and Jacket" loading="lazy">
             <div class="lookbook-overlay">
-              <span class="lookbook-top-badge" style="background: var(--accent-gold); color: #000;">Men's Festive</span>
+              <span class="lookbook-top-badge gold-badge" data-i18n="look2Badge">Men's Festive</span>
               <div>
-                <h3 class="lookbook-title">Textured Olive Jacket & Cream Kurta</h3>
-                <p class="lookbook-sub">Tailored slim-fit Nehru jacket paired with breathable cotton-silk kurta.</p>
-                <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20the%20Men%20Textured%20Olive%20Jacket%20and%20Kurta." target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
-                  <span>Inquire Look on WhatsApp</span>
+                <h3 class="lookbook-title" data-i18n="look2Title">Textured Olive Jacket & Cream Kurta</h3>
+                <p class="lookbook-sub" data-i18n="look2Sub">Tailored slim-fit Nehru jacket paired with breathable cotton-silk kurta.</p>
+                <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20the%20Men%20Textured%20Olive%20Jacket%20and%20Kurta." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
+                  <span data-i18n="inquireLook">Inquire Look on WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -505,12 +512,12 @@
           <div class="lookbook-reel-card">
             <img src="assets/hero_saree.jpg" alt="Royal Emerald Kanjeevaram Saree" loading="lazy">
             <div class="lookbook-overlay">
-              <span class="lookbook-top-badge" style="background: var(--accent-emerald);">Royal Bridal</span>
+              <span class="lookbook-top-badge emerald-badge" data-i18n="look3Badge">Royal Bridal</span>
               <div>
-                <h3 class="lookbook-title">Emerald Green & Crimson Kanjeevaram</h3>
-                <p class="lookbook-sub">Pure zari temple border, auspicious crimson pallu for Muhurtham rituals.</p>
-                <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20the%20Emerald%20Green%20Bridal%20Kanjeevaram%20Saree." target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
-                  <span>Inquire Look on WhatsApp</span>
+                <h3 class="lookbook-title" data-i18n="look3Title">Emerald Green & Crimson Kanjeevaram</h3>
+                <p class="lookbook-sub" data-i18n="look3Sub">Pure zari temple border, auspicious crimson pallu for Muhurtham rituals.</p>
+                <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20the%20Emerald%20Green%20Bridal%20Kanjeevaram%20Saree." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
+                  <span data-i18n="inquireLook">Inquire Look on WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -520,48 +527,45 @@
     </section>
 
     <!-- ==========================================================================
-         OCCASIONS & FAMILY PACKAGES
+         OCCASIONS & FAMILY PACKAGES (WHOLESALE VALUE)
          ========================================================================== -->
     <section class="occasions-banner-section" id="occasions">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-main-heading">
+          <h2 class="section-main-heading" data-i18n="occasionsHeading">
             Occasions & Family Packages <span>ಶುಭ ಸಮಾರಂಭಗಳ ವಿಶೇಷ</span>
           </h2>
-          <span style="font-size: 0.82rem; color: var(--text-muted);">Direct Wholesale Value</span>
+          <span class="section-subtext-muted" data-i18n="occasionsSub">Direct Wholesale Value</span>
         </div>
 
         <div class="occasions-card-grid">
           <!-- Card 1 -->
           <div class="occasion-banner-tile">
-            <span class="occ-badge">💍 Muhurtham & Wedding</span>
-            <h3 class="occ-title">Wedding Muhurtham Packages</h3>
-            <div class="occ-kannada">ಮದುವೆ & ಮುಹೂರ್ತ ಕಾಂಬೋ</div>
-            <p class="occ-desc">Pure bridal Kanjeevarams, groom silk panche & shalya, family coordinated outfits, and taamboola return gift sarees at wholesale packages.</p>
-            <a href="https://wa.me/919481234567?text=Namaskara!%20I%20am%20looking%20for%20Wedding%20Muhurtham%20Bulk%20Packages%20in%20Soraba." target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
-              <span>Book Wedding Consultation</span>
+            <span class="occ-badge" data-i18n="occ1Badge">💍 Muhurtham & Wedding</span>
+            <h3 class="occ-title" data-i18n="occ1Title">Wedding Muhurtham Packages</h3>
+            <p class="occ-desc" data-i18n="occ1Desc">Pure bridal Kanjeevarams, groom silk panche & shalya, family coordinated outfits, and taamboola return gift sarees at wholesale packages.</p>
+            <a href="https://wa.me/919481234567?text=Namaskara!%20I%20am%20looking%20for%20Wedding%20Muhurtham%20Bulk%20Packages%20in%20Soraba." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
+              <span data-i18n="occ1Btn">Book Wedding Consultation</span>
             </a>
           </div>
 
           <!-- Card 2 -->
           <div class="occasion-banner-tile">
-            <span class="occ-badge">🏡 Gruha Pravesha</span>
-            <h3 class="occ-title">Gruha Pravesha Auspicious Sets</h3>
-            <div class="occ-kannada">ಗೃಹಪ್ರವೇಶ & ಸತ್ಯನಾರಾಯಣ ಪೂಜೆ</div>
-            <p class="occ-desc">Auspicious turmeric yellow, peacock green, and kumkum red silks for the host couple and comfortable ethnic wear for visiting relatives.</p>
-            <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20Gruha%20Pravesha%20outfit%20packages%20in%20Soraba." target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
-              <span>Explore Gruha Pravesha Outfits</span>
+            <span class="occ-badge" data-i18n="occ2Badge">🏡 Gruha Pravesha</span>
+            <h3 class="occ-title" data-i18n="occ2Title">Gruha Pravesha Auspicious Sets</h3>
+            <p class="occ-desc" data-i18n="occ2Desc">Auspicious turmeric yellow, peacock green, and kumkum red silks for the host couple and comfortable ethnic wear for visiting relatives.</p>
+            <a href="https://wa.me/919481234567?text=Namaskara!%20Interested%20in%20Gruha%20Pravesha%20outfit%20packages%20in%20Soraba." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
+              <span data-i18n="occ2Btn">Explore Gruha Pravesha Outfits</span>
             </a>
           </div>
 
           <!-- Card 3 -->
           <div class="occasion-banner-tile">
-            <span class="occ-badge">🎁 Bulk Taamboola</span>
-            <h3 class="occ-title">Taamboola Return Gift Sarees</h3>
-            <div class="occ-kannada">ತಾಂಬೂಲ ಸೀರೆಗಳ ಸಗಟು ದರ</div>
-            <p class="occ-desc">High-quality, beautiful return gift sarees in attractive gift boxes at unmatched weaver-direct rates for weddings, upanayana, and pujas.</p>
-            <a href="https://wa.me/919481234567?text=Namaskara!%20Please%20share%20Taamboola%20Return%20Gift%20Saree%20rates." target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
-              <span>Get Return Gift Quotation</span>
+            <span class="occ-badge" data-i18n="occ3Badge">🎁 Bulk Taamboola</span>
+            <h3 class="occ-title" data-i18n="occ3Title">Taamboola Return Gift Sarees</h3>
+            <p class="occ-desc" data-i18n="occ3Desc">High-quality, beautiful return gift sarees in attractive gift boxes at unmatched weaver-direct rates for weddings, upanayana, and pujas.</p>
+            <a href="https://wa.me/919481234567?text=Namaskara!%20Please%20share%20Taamboola%20Return%20Gift%20Saree%20rates." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
+              <span data-i18n="occ3Btn">Get Return Gift Quotation</span>
             </a>
           </div>
         </div>
@@ -575,38 +579,38 @@
       <div class="container">
         <div class="showroom-feature-grid">
           <div class="showroom-text-block">
-            <span class="hero-banner-badge" style="background: var(--accent-gold); color: #000;">📍 Soraba Showroom Experience</span>
-            <h2>Experience In-Store Shopping at <span>Janatha Sarees</span></h2>
-            <p class="showroom-subtext">
+            <span class="showroom-badge" data-i18n="showroomBadge">📍 Soraba Showroom Experience</span>
+            <h2 data-i18n="showroomHeading">Experience In-Store Shopping at <span class="gold-gradient-text">Janatha Sarees</span></h2>
+            <p class="showroom-subtext" data-i18n="showroomDesc">
               Located in the heart of Soraba on historic Car Street (Ratha Beedi), our spacious showroom invites families from Soraba, Sagar, Sirsi, and Shikaripura to relax on comfortable gaddi counters while our staff unfold the finest silks for your special occasions.
             </p>
 
             <div class="store-meta-pills">
               <div class="meta-pill-card">
-                <div class="meta-pill-label">Store Location</div>
-                <div class="meta-pill-val">Car Street, Near Old Bus Stand, Soraba</div>
+                <div class="meta-pill-label" data-i18n="storeLocLabel">Store Location</div>
+                <div class="meta-pill-val" data-i18n="storeLocVal">Car Street, Near Old Bus Stand, Soraba</div>
               </div>
               <div class="meta-pill-card">
-                <div class="meta-pill-label">Store Timings</div>
-                <div class="meta-pill-val">9:30 AM – 9:00 PM (All 7 Days)</div>
+                <div class="meta-pill-label" data-i18n="storeTimeLabel">Store Timings</div>
+                <div class="meta-pill-val" data-i18n="storeTimeVal">9:30 AM – 9:00 PM (All 7 Days)</div>
               </div>
               <div class="meta-pill-card">
-                <div class="meta-pill-label">Helpline / WhatsApp</div>
-                <div class="meta-pill-val">+91 94812 34567</div>
+                <div class="meta-pill-label" data-i18n="storeHelpLabel">Helpline / WhatsApp</div>
+                <div class="meta-pill-val" data-i18n="storeHelpVal">+91 94812 34567</div>
               </div>
               <div class="meta-pill-card">
-                <div class="meta-pill-label">Payment Modes</div>
-                <div class="meta-pill-val">UPI (GPay/PhonePe), Cash, Cards</div>
+                <div class="meta-pill-label" data-i18n="storePayLabel">Payment Modes</div>
+                <div class="meta-pill-val" data-i18n="storePayVal">UPI (GPay/PhonePe), Cash, Cards</div>
               </div>
             </div>
 
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-              <a href="https://maps.google.com/?q=Janatha+Sarees+Soraba+Karnataka" target="_blank" rel="noopener noreferrer" class="btn-myntra-primary">
+            <div class="showroom-cta-wrap">
+              <a href="https://maps.google.com/?q=Janatha+Sarees+Soraba+Karnataka" target="_blank" rel="noopener noreferrer" class="btn-royal-primary">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                <span>Get Google Maps Directions</span>
+                <span data-i18n="btnMaps">Get Google Maps Directions</span>
               </a>
-              <a href="https://wa.me/919481234567?text=Namaskara!%20I%20am%20visiting%20Janatha%20Sarees%20Soraba%20today." target="_blank" rel="noopener noreferrer" class="btn-myntra-whatsapp">
-                <span>Notify Showroom via WhatsApp</span>
+              <a href="https://wa.me/919481234567?text=Namaskara!%20I%20am%20visiting%20Janatha%20Sarees%20Soraba%20today." target="_blank" rel="noopener noreferrer" class="btn-royal-whatsapp">
+                <span data-i18n="btnShowroomNotify">Notify Showroom via WhatsApp</span>
               </a>
             </div>
           </div>
@@ -619,15 +623,15 @@
     </section>
 
     <!-- ==========================================================================
-         AEO FAQ ACCORDION
+         AEO FAQ ACCORDION (NO VIDEO MENTIONS)
          ========================================================================== -->
     <section class="faq-section" id="faq">
       <div class="container faq-wrapper">
-        <div class="section-title-wrap" style="text-align: center; display: block;">
-          <h2 class="section-main-heading" style="justify-content: center;">
+        <div class="section-title-wrap faq-header-wrap">
+          <h2 class="section-main-heading faq-centered-heading" data-i18n="faqHeading">
             Frequently Asked Questions <span>ಪ್ರಶ್ನೋತ್ತರ</span>
           </h2>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">
+          <p class="faq-subtext" data-i18n="faqSub">
             Common questions about Janatha Sarees collections, location, bulk packages, and WhatsApp inquiry.
           </p>
         </div>
@@ -636,44 +640,44 @@
           <!-- FAQ 1 -->
           <div class="faq-item active">
             <button class="faq-btn" aria-expanded="true">
-              <span>Where is Janatha Sarees located in Soraba, Karnataka?</span>
+              <span data-i18n="faq1Q">Where is Janatha Sarees located in Soraba, Karnataka?</span>
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="faq-body">
-              <p>Janatha Sarees is centrally located near the Old Bus Stand on Car Street (Ratha Beedi) in Soraba town, Shivamogga District, Karnataka (PIN 577429). We are easily reachable by road from Sagar, Sirsi, Shikaripura, and Anavatti, with ample customer parking nearby.</p>
+              <p data-i18n="faq1A">Janatha Sarees is centrally located near the Old Bus Stand on Car Street (Ratha Beedi) in Soraba town, Shivamogga District, Karnataka (PIN 577429). We are easily reachable by road from Sagar, Sirsi, Shikaripura, and Anavatti, with ample customer parking nearby.</p>
             </div>
           </div>
 
           <!-- FAQ 2 -->
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
-              <span>What types of sarees are available at Janatha Sarees Soraba?</span>
+              <span data-i18n="faq2Q">What types of sarees are available at Janatha Sarees Soraba?</span>
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="faq-body">
-              <p>We feature pure bridal Kanjeevarams, gleaming Banarasi silks, lightweight soft silks, authentic Ilkal handlooms, soft chiffons, floral georgettes, organza, and pure daily-wear cottons at honest weaver-direct prices.</p>
+              <p data-i18n="faq2A">We feature pure bridal Kanjeevarams, gleaming Banarasi silks, lightweight soft silks, authentic Ilkal handlooms, soft chiffons, floral georgettes, organza, and pure daily-wear cottons at honest weaver-direct prices.</p>
             </div>
           </div>
 
           <!-- FAQ 3 -->
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
-              <span>Do you also carry Men's wear, Kids' wear, and daily comfort clothing?</span>
+              <span data-i18n="faq3Q">Do you also carry Men's wear, Kids' wear, and daily comfort clothing?</span>
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="faq-body">
-              <p>Yes! Janatha Sarees is an all-in-one family department store. We carry men's pure silk panche (dhoti), shalyas, wedding kurtas, formal shirts, kids' festive pattu pavada and sherwani sets, as well as 100% cotton nightwear and gym activewear.</p>
+              <p data-i18n="faq3A">Yes! Janatha Sarees is an all-in-one family department store. We carry men's pure silk panche (dhoti), shalyas, wedding kurtas, formal shirts, kids' festive pattu pavada and sherwani sets, as well as 100% cotton nightwear and gym activewear.</p>
             </div>
           </div>
 
           <!-- FAQ 4 -->
           <div class="faq-item">
             <button class="faq-btn" aria-expanded="false">
-              <span>How can I check designs, colors, or prices on WhatsApp?</span>
+              <span data-i18n="faq4Q">How can I check designs, colors, or prices on WhatsApp?</span>
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="faq-body">
-              <p>Simply click any WhatsApp button on this site or text <strong>+91 94812 34567</strong>. Our in-store team will share high-resolution photos, video call previews of saree borders/pallus, and answer your questions in both Kannada and English.</p>
+              <p data-i18n="faq4A">Simply click any WhatsApp button on this site or text <strong>+91 94812 34567</strong>. Our in-store team will share high-resolution photos of saree borders/pallus, authentic fabric details, and answer your questions in both Kannada and English.</p>
             </div>
           </div>
         </div>
@@ -683,15 +687,15 @@
   </main>
 
   <!-- ==========================================================================
-       MODERN FOOTER (AJIO & MYNTRA STYLE)
+       ROYAL SILK FOOTER (GLASS & GOLD ACCENTS)
        ========================================================================== -->
   <footer class="app-footer" role="contentinfo">
     <div class="container">
       <div class="footer-columns">
         <!-- Col 1 -->
         <div class="footer-brand">
-          <h3>JANATHA <span>SAREES</span></h3>
-          <p>
+          <h3>JANATHA <span class="brand-sarees">SAREES</span></h3>
+          <p data-i18n="footerDesc">
             Soraba's most trusted family retail fashion house. Pure handlooms, grand bridal silks, men's royal ethnic attire, kids festive sets, and daily comfort wear at honest direct weaver pricing.
           </p>
           <a href="https://wa.me/919481234567" target="_blank" rel="noopener noreferrer" class="whatsapp-pill-btn" style="display: inline-flex;">
@@ -701,43 +705,43 @@
 
         <!-- Col 2: Categories -->
         <div class="footer-col">
-          <h4>Categories</h4>
+          <h4 data-i18n="footerCatTitle">Categories</h4>
           <ul class="footer-menu">
-            <li><a href="#catalog">Bridal Kanjeevarams</a></li>
+            <li><a href="#catalog" data-i18n="catSarees">Bridal Kanjeevarams</a></li>
             <li><a href="#catalog">Soft Silk & Banarasi</a></li>
             <li><a href="#catalog">Daily Pure Cotton Sarees</a></li>
-            <li><a href="#catalog">Men's Zari Panche & Kurtas</a></li>
-            <li><a href="#catalog">Kids Festive Pattu Pavada</a></li>
-            <li><a href="#catalog">Cotton Nightwear & Sports</a></li>
+            <li><a href="#catalog" data-i18n="catMen">Men's Zari Panche & Kurtas</a></li>
+            <li><a href="#catalog" data-i18n="catKids">Kids Festive Pattu Pavada</a></li>
+            <li><a href="#catalog" data-i18n="catComfort">Cotton Nightwear & Sports</a></li>
           </ul>
         </div>
 
         <!-- Col 3: Occasions -->
         <div class="footer-col">
-          <h4>Occasions</h4>
+          <h4 data-i18n="footerOccTitle">Occasions</h4>
           <ul class="footer-menu">
-            <li><a href="#occasions">Wedding & Muhurtham</a></li>
-            <li><a href="#occasions">Gruha Pravesha Sets</a></li>
-            <li><a href="#occasions">Taamboola Return Gift Sarees</a></li>
-            <li><a href="#lookbook">Trending Lookbook</a></li>
-            <li><a href="#store">Soraba Showroom</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#occasions" data-i18n="occ1Title">Wedding & Muhurtham</a></li>
+            <li><a href="#occasions" data-i18n="occ2Title">Gruha Pravesha Sets</a></li>
+            <li><a href="#occasions" data-i18n="occ3Title">Taamboola Return Gift Sarees</a></li>
+            <li><a href="#lookbook" data-i18n="catLookbook">Trending Lookbook</a></li>
+            <li><a href="#store" data-i18n="catShowroom">Soraba Showroom</a></li>
+            <li><a href="#faq" data-i18n="faqHeading">Frequently Asked Questions</a></li>
           </ul>
         </div>
 
         <!-- Col 4: Showroom -->
         <div class="footer-col">
-          <h4>Soraba Showroom</h4>
-          <p style="margin-bottom: 0.5rem;">📍 Near Old Bus Stand, Car Street (ರಥಬೀದಿ), Soraba, Shivamogga, Karnataka 577429</p>
-          <p style="margin-bottom: 0.5rem;">🕒 9:30 AM – 9:00 PM (Monday to Sunday)</p>
-          <p>📞 08184 272233 / +91 94812 34567</p>
+          <h4 data-i18n="footerStoreTitle">Soraba Showroom</h4>
+          <p style="margin-bottom: 0.5rem;" data-i18n="footerAddress">📍 Near Old Bus Stand, Car Street (ರಥಬೀದಿ), Soraba, Shivamogga, Karnataka 577429</p>
+          <p style="margin-bottom: 0.5rem;" data-i18n="footerTimings">🕒 9:30 AM – 9:00 PM (Monday to Sunday)</p>
+          <p data-i18n="footerPhones">📞 08184 272233 / +91 94812 34567</p>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div>© 2026 Janatha Sarees Soraba. All rights reserved. Trending e-commerce catalog for Karnataka families.</div>
+        <div data-i18n="footerCopy">© 2026 Janatha Sarees Soraba. All rights reserved. Trending e-commerce catalog for Karnataka families.</div>
         <div style="display: flex; gap: 1rem;">
-          <a href="#home">Back to Top ↑</a>
+          <a href="#home" data-i18n="footerBackToTop">Back to Top ↑</a>
           <a href="https://maps.google.com/?q=Janatha+Sarees+Soraba" target="_blank" rel="noopener noreferrer">Google Maps</a>
         </div>
       </div>
@@ -745,54 +749,57 @@
   </footer>
 
   <!-- ==========================================================================
-       APP-LIKE MOBILE BOTTOM NAVIGATION DOCK (MYNTRA & AJIO APP STYLE)
+       APP-LIKE MOBILE BOTTOM NAVIGATION DOCK (FROSTED GLASS & GOLD INDICATOR)
        ========================================================================== -->
   <aside class="mobile-bottom-nav" aria-label="Mobile Navigation Dock">
     <div class="mobile-nav-flex">
       <a href="#home" class="mobile-nav-btn active">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        <span>Home</span>
+        <span data-i18n="navHome">Home</span>
       </a>
 
       <a href="#catalog" class="mobile-nav-btn">
         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-        <span>Trends</span>
+        <span data-i18n="navTrends">Trends</span>
       </a>
 
       <button class="mobile-nav-btn" id="mobileWishlistBtn">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        <span>Wishlist (<span id="mobileWishlistBadge">0</span>)</span>
+        <div class="mobile-nav-icon-wrap">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="mobile-nav-badge" id="mobileWishlistBadge">0</span>
+        </div>
+        <span data-i18n="navWishlist">Wishlist</span>
       </button>
 
       <a href="https://wa.me/919481234567?text=Namaskara%20Janatha%20Sarees!%20I%20am%20exploring%20your%20collection." target="_blank" rel="noopener noreferrer" class="mobile-whatsapp-cta">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span>Chat</span>
+        <span data-i18n="navChat">Chat</span>
       </a>
     </div>
   </aside>
 
   <!-- ==========================================================================
-       SLIDE-OVER WISHLIST DRAWER
+       SLIDE-OVER WISHLIST DRAWER (GOLD & GLASS FINISH)
        ========================================================================== -->
   <aside class="wishlist-drawer" id="wishlistDrawer" aria-label="Wishlist Drawer">
     <div class="drawer-panel">
       <div class="drawer-header">
-        <h3>My Wishlist / Visit List (<span id="drawerWishlistCount">0</span>)</h3>
-        <button id="closeWishlistBtn" style="font-size: 1.5rem; font-weight: 700; color: var(--text-muted);">&times;</button>
+        <h3><span data-i18n="drawerTitle">My Wishlist / Visit List</span> (<span id="drawerWishlistCount">0</span>)</h3>
+        <button id="closeWishlistBtn" class="drawer-close-btn" aria-label="Close Wishlist">&times;</button>
       </div>
       <div class="drawer-body" id="wishlistDrawerBody">
         <!-- Rendered via js/app.js -->
       </div>
       <div class="drawer-footer">
-        <button class="btn-order-whatsapp" id="shareWishlistWhatsAppBtn">
+        <button class="btn-royal-whatsapp" id="shareWishlistWhatsAppBtn">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          <span>Share Wishlist on WhatsApp</span>
+          <span data-i18n="shareWishlistWhatsApp">Share Wishlist on WhatsApp</span>
         </button>
       </div>
     </div>
   </aside>
 
   <!-- JavaScript -->
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=20261019_v3"></script>
 </body>
 </html>
